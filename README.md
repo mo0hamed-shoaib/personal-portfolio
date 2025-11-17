@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio
 
-## Getting Started
+A minimal and professional portfolio website built with Next.js, focusing on clean design, performance, and maintainability.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This portfolio showcases my work as a frontend developer. The site is built with a focus on simplicity, fast loading times, and easy content management. All portfolio information lives in a single source of truth, making updates straightforward.
+
+## Architecture
+
+The project follows Next.js App Router conventions with a clear separation between server and client components. Most of the UI is rendered on the server to reduce JavaScript bundle size and improve initial load performance. Client components are only used where interactivity is needed, like the theme toggle or contact form.
+
+The codebase is organized into logical sections. Components are kept small, typically under 200 lines, and split by responsibility. Each portfolio section is its own component, making the codebase easy to navigate and maintain.
+
+## Problem
+
+When building a portfolio, I wanted something that was easy to update without diving into complex component structures. I also needed a design system that was consistent and accessible out of the box, without having to build everything from scratch. Performance was important too, especially for a portfolio that might be viewed on slower connections.
+
+## Solution
+
+The portfolio uses a single data file that acts as the source of truth for all content. Update one file, and changes reflect across the entire site. The component architecture is modular, so each section can be modified independently without affecting others.
+
+For the UI foundation, I chose Base UI over other options because it provides unstyled primitives that give full control over styling while handling accessibility and behavior. This means I can build exactly what I need without fighting against opinionated styles.
+
+## Tech Stack
+
+**Next.js 16** - The framework handles routing, server rendering, and image optimization. The App Router makes it easy to organize code and leverage React Server Components for better performance.
+
+**React 19** - Used for building the UI. Server Components are the default, which means less JavaScript sent to the browser and faster initial loads.
+
+**TypeScript** - Type safety helps catch errors early and makes the codebase easier to work with, especially when updating portfolio data.
+
+**Tailwind CSS** - Utility-first CSS that makes styling fast and consistent. No need to write custom CSS for most things, and the design system is enforced through utility classes.
+
+**Base UI** - Unstyled component primitives that handle accessibility and behavior. I can style them however I want while getting proper ARIA attributes and keyboard navigation for free.
+
+**Animate UI** - Adds smooth animations to Base UI components using Motion. Animations respect user preferences for reduced motion, so the site stays accessible.
+
+**next-themes** - Handles dark mode switching with proper SSR support and no flash of wrong theme.
+
+**Resend** - Powers the contact form email functionality. Simple API that handles sending emails from the contact form.
+
+**Sonner** - Toast notifications for user feedback when submitting the contact form.
+
+**simple-icons** - Provides SVG icons for the tech stack section. Easy to use and keeps the bundle size reasonable.
+
+## Design Language
+
+The design follows a minimal approach inspired by Swiss design principles. The layout uses a consistent max-width constraint across all sections for visual consistency. There are no rounded corners, keeping everything squared and clean.
+
+The color system uses CSS variables that adapt to light and dark themes. Typography is simple and readable, with the Geist font family for both sans and mono text.
+
+Animations are subtle and purposeful. They enhance the experience without being distracting, and they respect user preferences for reduced motion. The theme toggle uses smooth transitions, and interactive elements provide clear feedback.
+
+## Why Base UI Instead of Radix UI
+
+Base UI and Radix UI are both excellent choices for building accessible components. I chose Base UI for a few specific reasons.
+
+Base UI provides unstyled primitives that give complete control over the visual design. Since I wanted a minimal, squared design language, I needed components that wouldn't fight against custom styling. Base UI components are truly unstyled, so I can apply exactly the styles I want without overriding default styles.
+
+The component API is straightforward and flexible. Base UI components are composable, which makes it easy to build exactly what I need. The library also integrates well with Animate UI, which provides animated versions of Base UI components.
+
+Another factor was consistency. Base UI covers all the components I need, so there's no reason to build custom ones or mix in another library.
+
+Radix UI is great, but it comes with more opinionated styling patterns. For this project, I wanted the flexibility to build a completely custom design system without having to override Radix's defaults.
+
+## Project Structure
+
+```
+src/
+  app/              # Next.js app router pages and layouts
+  components/       # React components organized by feature
+  lib/              # Utility functions and portfolio data
+  hooks/            # Custom React hooks
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The `lib/portfolio-data.ts` file contains all portfolio content. This is the single source of truth for personal information, projects, tech stack, experience, and certifications. Update this file to change any content across the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Components are organized by feature. Each portfolio section has its own folder with a single component file. This keeps the codebase organized and makes it easy to find and modify specific sections.
