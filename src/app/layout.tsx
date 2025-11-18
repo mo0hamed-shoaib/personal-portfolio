@@ -4,6 +4,7 @@ import { MotionConfig } from "motion/react";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/toaster/toaster";
+import { ScrollRestoration } from "@/components/scroll-restoration";
 import { portfolioData } from "@/lib/portfolio-data";
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <MotionConfig reducedMotion="user">
+          <ScrollRestoration />
           <ThemeProvider>
             {children}
             <Toaster />
