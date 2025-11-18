@@ -21,8 +21,20 @@ export function FeaturedProjects() {
           {projects.featured.map((project) => (
             <div
               key={project.id}
-              className="group overflow-hidden border border-border bg-card transition-shadow hover:shadow-lg"
+              className="relative border border-border bg-card"
             >
+              <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
+              <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
+              <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
+              <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
               <div className="relative aspect-video w-full overflow-hidden bg-muted">
                 <Image
                   src={project.image}

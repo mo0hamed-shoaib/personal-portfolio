@@ -1,3 +1,5 @@
+"use client";
+
 import { portfolioData } from "@/lib/portfolio-data";
 import * as SimpleIcons from "simple-icons";
 
@@ -16,30 +18,46 @@ export function TechStack() {
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2">
           {techStack.map((tech) => {
             const iconKey = `si${tech.iconSlug
               .split(/[.-]/)
               .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
               .join("")}` as keyof typeof SimpleIcons;
-            const icon = (SimpleIcons as Record<string, { svg: string; hex: string }>)[iconKey];
+            const icon = (SimpleIcons as unknown as Record<
+              string,
+              { svg: string; hex: string }
+            >)[iconKey];
+            const iconMarkup = icon?.svg.replace(
+              /<svg /,
+              `<svg fill="currentColor" `,
+            );
 
             return (
               <div
                 key={tech.name}
-                className="flex flex-col items-center gap-4 border border-border bg-card p-6 text-center transition-shadow hover:shadow-md"
+                className="relative flex items-start gap-4 border border-border bg-card p-6"
               >
-                {icon && (
+                <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-semibold font-mono leading-none text-foreground">
+                  +
+                </span>
+                <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-semibold font-mono leading-none text-foreground">
+                  +
+                </span>
+                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-semibold font-mono leading-none text-foreground">
+                  +
+                </span>
+                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-semibold font-mono leading-none text-foreground">
+                  +
+                </span>
+                {iconMarkup && (
                   <div
-                    className="h-12 w-12 flex items-center justify-center"
-                    dangerouslySetInnerHTML={{ __html: icon.svg }}
-                    style={{
-                      fill: `#${icon.hex}`,
-                    }}
+                    className="h-12 w-12 flex items-center justify-center flex-shrink-0 text-foreground"
+                    dangerouslySetInnerHTML={{ __html: iconMarkup }}
                   />
                 )}
                 <div>
-                  <h3 className="font-semibold">{tech.name}</h3>
+                  <h3 className="text-lg font-semibold">{tech.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {tech.description}
                   </p>
@@ -52,4 +70,3 @@ export function TechStack() {
     </section>
   );
 }
-

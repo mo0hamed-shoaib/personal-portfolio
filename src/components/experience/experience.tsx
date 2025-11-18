@@ -1,3 +1,9 @@
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionPanel,
+} from "@/components/animate-ui/components/base/accordion";
 import { portfolioData } from "@/lib/portfolio-data";
 
 export function Experience() {
@@ -16,55 +22,161 @@ export function Experience() {
           {experience.length > 0 && (
             <div>
               <h3 className="mb-4 text-xl font-semibold">Work Experience</h3>
-              <div className="space-y-6">
+              <Accordion multiple className="space-y-4">
                 {experience.map((exp) => (
-                  <div
+                  <AccordionItem
                     key={exp.id}
-                    className="border border-border bg-card p-6"
+                    value={exp.id}
+                    className="border-0 bg-transparent"
                   >
-                    <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                      <h4 className="font-semibold">{exp.title}</h4>
-                      <span className="text-sm text-muted-foreground">
-                        {exp.period}
+                    <div className="relative border border-border bg-card">
+                      <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
                       </span>
+                      <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <AccordionTrigger
+                        showArrow={false}
+                        className="group flex w-full cursor-pointer items-start justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      >
+                        <div>
+                          <h4 className="font-semibold">{exp.title}</h4>
+                          <p className="text-sm text-muted-foreground">
+                            {exp.company}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-muted-foreground">
+                            {exp.period}
+                          </span>
+                          <PlusIcon className="h-3 w-3 flex-shrink-0 transition-transform duration-200 group-data-[panel-open]:rotate-45 group-data-[panel-open]:scale-110" />
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionPanel className="px-4 pb-4 space-y-4 text-sm text-muted-foreground">
+                        {exp.description && <p>{exp.description}</p>}
+                        {exp.responsibilities?.length ? (
+                          <div className="space-y-2">
+                            <p className="font-medium text-foreground">
+                              My Responsibilities
+                            </p>
+                            <ul className="list-disc space-y-1 pl-5">
+                              {exp.responsibilities.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                        {exp.learnings?.length ? (
+                          <div className="space-y-2">
+                            <p className="font-medium text-foreground">
+                              What I Learned
+                            </p>
+                            <ul className="list-disc space-y-1 pl-5">
+                              {exp.learnings.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </AccordionPanel>
                     </div>
-                    <p className="mb-2 text-sm text-muted-foreground">
-                      {exp.company}
-                    </p>
-                    <p className="text-foreground/80">{exp.description}</p>
-                  </div>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           )}
 
           {internships.length > 0 && (
             <div>
               <h3 className="mb-4 text-xl font-semibold">Internships</h3>
-              <div className="space-y-6">
+              <Accordion multiple className="space-y-4">
                 {internships.map((intern) => (
-                  <div
+                  <AccordionItem
                     key={intern.id}
-                    className="border border-border bg-card p-6"
+                    value={intern.id}
+                    className="border-0 bg-transparent"
                   >
-                    <div className="mb-2 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                      <h4 className="font-semibold">{intern.title}</h4>
-                      <span className="text-sm text-muted-foreground">
-                        {intern.period}
+                    <div className="relative border border-border bg-card">
+                      <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
                       </span>
+                      <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                        +
+                      </span>
+                      <AccordionTrigger
+                        showArrow={false}
+                        className="group flex w-full cursor-pointer items-start justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                      >
+                        <div>
+                          <h4 className="font-semibold">{intern.title}</h4>
+                          <p className="text-sm text-muted-foreground">
+                            {intern.company}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-muted-foreground">
+                            {intern.period}
+                          </span>
+                          <PlusIcon className="h-3 w-3 flex-shrink-0 transition-transform duration-200 group-data-[panel-open]:rotate-45 group-data-[panel-open]:scale-110" />
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionPanel className="px-4 pb-4 space-y-4 text-sm text-muted-foreground">
+                        {intern.description && <p>{intern.description}</p>}
+                        {intern.responsibilities?.length ? (
+                          <div className="space-y-2">
+                            <p className="font-medium text-foreground">
+                              My Responsibilities
+                            </p>
+                            <ul className="list-disc space-y-1 pl-5">
+                              {intern.responsibilities.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                        {intern.learnings?.length ? (
+                          <div className="space-y-2">
+                            <p className="font-medium text-foreground">
+                              What I Learned
+                            </p>
+                            <ul className="list-disc space-y-1 pl-5">
+                              {intern.learnings.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </AccordionPanel>
                     </div>
-                    <p className="mb-2 text-sm text-muted-foreground">
-                      {intern.company}
-                    </p>
-                    <p className="text-foreground/80">{intern.description}</p>
-                  </div>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           )}
         </div>
       </div>
     </section>
+  );
+}
+
+function PlusIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg viewBox="0 0 12 12" fill="currentColor" {...props}>
+      <path d="M6.75 0H5.25V5.25H0V6.75L5.25 6.75V12H6.75V6.75L12 6.75V5.25H6.75V0Z" />
+    </svg>
   );
 }
 
