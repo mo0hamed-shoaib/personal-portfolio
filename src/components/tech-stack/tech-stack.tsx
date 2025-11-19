@@ -7,8 +7,8 @@ export function TechStack() {
   const { techStack } = portfolioData;
 
   return (
-    <section id="tech-stack" className="container mx-auto px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl">
+    <section id="tech-stack" className="py-16 md:py-24">
+      <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             Tech Stack
@@ -19,7 +19,7 @@ export function TechStack() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {techStack.map((tech) => {
+          {techStack.map((tech, index) => {
             const iconKey = `si${tech.iconSlug
               .split(/[.-]/)
               .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
@@ -33,21 +33,26 @@ export function TechStack() {
               `<svg fill="currentColor" `,
             );
 
+            const isLeftColumn = index % 2 === 0;
+            const borderClasses = isLeftColumn
+              ? "border-y border-r border-border"
+              : "border-y border-l border-border";
+
             return (
               <div
                 key={tech.name}
-                className="relative flex items-start gap-4 border border-border bg-card p-6"
+                className={`relative flex items-start gap-4 ${borderClasses} bg-card p-6`}
               >
-                    <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-foreground">
+                    <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
                       +
                     </span>
-                    <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-foreground">
+                    <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
                       +
                     </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
                   +
                 </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
                   +
                 </span>
                 {iconMarkup && (

@@ -1,37 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
+import { Avatar } from "./avatar";
 
 export function Introduction() {
   const { personal } = portfolioData;
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl">
-        <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left">
-          <div className="relative h-32 w-32 flex-shrink-0 border border-border">
-            <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
-              +
-            </span>
-            <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
-              +
-            </span>
-            <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
-              +
-            </span>
-            <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
-              +
-            </span>
-            <div className="relative h-full w-full overflow-hidden">
-              <Image
-                src={personal.avatar}
-                alt={`${personal.name} avatar`}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
+    <section className="py-16 md:py-24 px-4">
+      <div>
+        <div className="flex flex-col items-center gap-8 text-center">
+          <Avatar src={personal.avatar} alt={`${personal.name} avatar`} />
 
           <div className="flex flex-1 flex-col gap-4">
             <div>
@@ -47,7 +25,7 @@ export function Introduction() {
               {personal.bio}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href={personal.socialLinks.linkedin}
                 target="_blank"

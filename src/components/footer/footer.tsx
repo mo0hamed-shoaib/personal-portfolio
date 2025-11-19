@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, startTransition } from "react";
 import { useTheme } from "next-themes";
-import { Separator } from "@base-ui-components/react/separator";
 import { portfolioData } from "@/lib/portfolio-data";
 
 export function Footer() {
@@ -20,11 +19,22 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="bg-background">
-      <div className="container mx-auto max-w-3xl px-4 py-12">
-        <Separator className="mb-12 border-border" />
-        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <div className="flex flex-col items-center gap-2 md:items-start">
+    <footer className="w-full bg-background pb-4">
+      <div className="container mx-auto px-4">
+        <div className="relative mx-auto max-w-3xl border border-border bg-card py-4">
+          <span className="pointer-events-none absolute z-20 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
+            +
+          </span>
+          <span className="pointer-events-none absolute z-20 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
+            +
+          </span>
+          <span className="pointer-events-none absolute z-20 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
+            +
+          </span>
+          <span className="pointer-events-none absolute z-20 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
+            +
+          </span>
+          <div className="flex flex-col items-center justify-between gap-4 px-4 md:flex-row">
             <div className="flex items-center gap-3">
               {mounted && resolvedTheme === "dark" ? (
                 <Image
@@ -43,11 +53,10 @@ export function Footer() {
                   className="h-6 w-6"
                 />
               )}
+              <p className="text-sm text-muted-foreground">
+                © {currentYear} {personal.name}
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} {personal.name}. All rights reserved.
-            </p>
-          </div>
 
           <div className="flex items-center gap-4">
             <Link
@@ -104,6 +113,7 @@ export function Footer() {
               </svg>
             </Link>
           </div>
+        </div>
         </div>
       </div>
     </footer>
