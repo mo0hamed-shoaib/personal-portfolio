@@ -2,9 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState, startTransition } from "react";
 import { useTheme } from "next-themes";
-import { Menu } from "@base-ui-components/react/menu";
+import {
+  Menu,
+  MenuTrigger,
+  MenuPanel,
+  MenuItem,
+} from "@/components/animate-ui/components/base/menu";
 import {
   Tooltip,
   TooltipTrigger,
@@ -23,6 +29,7 @@ const navLinks = [
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
+  const router = useRouter();
 
   useEffect(() => {
     // Set mounted state after hydration to prevent hydration mismatches
@@ -38,16 +45,16 @@ export function Navbar() {
     <nav className="sticky top-4 z-50 w-full">
       <div className="container mx-auto px-4">
         <div className="relative mx-auto max-w-3xl border border-border bg-card">
-          <span className="pointer-events-none absolute z-20 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+              <span className="pointer-events-none absolute z-20 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
+              <span className="pointer-events-none absolute z-20 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
+                +
+              </span>
+          <span className="pointer-events-none absolute z-20 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
             +
           </span>
-          <span className="pointer-events-none absolute z-20 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
-            +
-          </span>
-          <span className="pointer-events-none absolute z-20 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
-            +
-          </span>
-          <span className="pointer-events-none absolute z-20 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+          <span className="pointer-events-none absolute z-20 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
             +
           </span>
           <div className="flex h-12 items-center justify-between px-4">
@@ -108,39 +115,32 @@ export function Navbar() {
             )}
 
             {/* Mobile Menu */}
-            <Menu.Root>
-              <Menu.Trigger
+            <Menu>
+              <MenuTrigger
                 className="flex h-8 w-8 cursor-pointer items-center justify-center bg-transparent transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
                 aria-label="Open navigation menu"
               >
                 <MenuIcon />
-              </Menu.Trigger>
-              <Menu.Portal>
-                <Menu.Positioner
-                  className="outline-none z-[60]"
-                  sideOffset={8}
-                  align="start"
-                  alignOffset={-16}
-                >
-                  <Menu.Popup className="origin-[var(--transform-origin)] w-auto border border-border bg-popover py-1 text-popover-foreground transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0">
-                    {navLinks.map((link) => (
-                      <Menu.Item
-                        key={link.href}
-                        closeOnClick
-                        render={
-                          <Link
-                            href={link.href}
-                            className="flex cursor-pointer py-2 px-4 text-sm font-medium text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground"
-                          >
-                            {link.label}
-                          </Link>
-                        }
-                      />
-                    ))}
-                  </Menu.Popup>
-                </Menu.Positioner>
-              </Menu.Portal>
-            </Menu.Root>
+              </MenuTrigger>
+              <MenuPanel
+                className="w-auto border border-border bg-popover py-1 text-popover-foreground shadow-none rounded-none [&>div]:rounded-none [&>div>div]:rounded-none"
+                sideOffset={8}
+                align="start"
+                alignOffset={-16}
+                transition={{ duration: 0.2 }}
+              >
+                {navLinks.map((link) => (
+                  <MenuItem
+                    key={link.href}
+                    closeOnClick
+                    onClick={() => router.push(link.href)}
+                    className="flex cursor-pointer rounded-none py-2 px-4 text-sm font-medium text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground"
+                  >
+                    {link.label}
+                  </MenuItem>
+                ))}
+              </MenuPanel>
+            </Menu>
           </div>
           </div>
         </div>

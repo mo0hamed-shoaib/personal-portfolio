@@ -11,7 +11,10 @@ export function Certifications() {
   const { certifications } = portfolioData;
 
   return (
-    <section id="certifications" className="container mx-auto px-4 py-16 md:py-24">
+    <section
+      id="certifications"
+      className="container mx-auto px-4 py-16 md:py-24"
+    >
       <div className="mx-auto max-w-3xl">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -27,34 +30,31 @@ export function Certifications() {
               className="border-0 bg-transparent"
             >
               <div className="relative border border-border bg-card">
-                <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
                   +
                 </span>
-                <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
                   +
                 </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
                   +
                 </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
                   +
                 </span>
                 <AccordionTrigger
                   showArrow={false}
                   className="group flex w-full cursor-pointer items-start justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  <div>
+                  <div className="flex-1">
                     <h3 className="font-semibold">{cert.name}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {cert.issuer}
-                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span>{cert.issuer}</span>
+                      <span>•</span>
+                      <span>{cert.date}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm text-muted-foreground">
-                      {cert.date}
-                    </span>
-                    <PlusIcon className="h-3 w-3 flex-shrink-0 transition-transform duration-200 group-data-[panel-open]:rotate-45 group-data-[panel-open]:scale-110" />
-                  </div>
+                  <PlusIcon className="h-3 w-3 flex-shrink-0 transition-transform duration-200 group-data-[panel-open]:rotate-45 group-data-[panel-open]:scale-110" />
                 </AccordionTrigger>
                 <AccordionPanel className="px-4 pb-4 space-y-4 text-sm text-muted-foreground">
                   {cert.learnings?.length ? (
@@ -100,4 +100,3 @@ function PlusIcon(props: React.ComponentProps<"svg">) {
     </svg>
   );
 }
-

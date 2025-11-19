@@ -10,16 +10,16 @@ export function Introduction() {
       <div className="mx-auto max-w-3xl">
         <div className="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left">
           <div className="relative h-32 w-32 flex-shrink-0 border border-border">
-            <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+            <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
               +
             </span>
-            <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-1/2 -translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+            <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-foreground">
               +
             </span>
-            <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+            <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
               +
             </span>
-            <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-[10px] font-mono font-semibold leading-none text-foreground">
+            <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-foreground">
               +
             </span>
             <div className="relative h-full w-full overflow-hidden">
