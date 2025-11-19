@@ -23,33 +23,69 @@ export const portfolioData = {
         id: "mo-experiences",
         name: "Mo's Experiences",
         description: "A modern web application showcasing unique experiences.",
+        fullDescription:
+          "Mo's Experiences is a comprehensive platform designed to showcase and manage unique experiences. The application provides users with an intuitive interface to discover, book, and share memorable experiences.",
         image: "/placeholder.svg",
         websiteUrl: "#",
         repositoryUrl: null, // null if private
+        architecture:
+          "Built with Next.js App Router for optimal performance and SEO. Utilizes Server Components for initial page loads and Client Components for interactive features. Implements a component-based architecture with reusable UI elements.",
+        problem:
+          "Users needed a centralized platform to discover and book unique experiences, but existing solutions lacked modern UX and performance optimization.",
+        solution:
+          "Developed a fast, responsive web application with server-side rendering for quick initial loads, client-side interactivity for smooth user experience, and a clean, minimal design that focuses on content.",
+        techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
       },
       {
         id: "dana-doors",
         name: "Dana Doors",
         description: "E-commerce platform for premium door solutions.",
+        fullDescription:
+          "Dana Doors is an e-commerce platform specializing in premium door solutions. The platform offers a seamless shopping experience with detailed product catalogs, customization options, and secure checkout processes.",
         image: "/placeholder.svg",
         websiteUrl: "#",
         repositoryUrl: null,
+        architecture:
+          "E-commerce architecture with product catalog management, shopping cart functionality, and order processing. Uses Next.js for server-side rendering and API routes for backend operations.",
+        problem:
+          "The client needed a modern e-commerce solution that could handle complex product configurations, multiple variants, and provide an excellent user experience.",
+        solution:
+          "Created a scalable e-commerce platform with dynamic product pages, real-time inventory management, and an intuitive checkout flow. Implemented responsive design for mobile and desktop users.",
+        techStack: ["Next.js", "React", "TypeScript", "Supabase"],
       },
       {
         id: "rootly",
         name: "Rootly",
         description: "Innovative platform for plant enthusiasts.",
+        fullDescription:
+          "Rootly is an innovative platform designed for plant enthusiasts to track, manage, and learn about their plant collections. Features include plant care reminders, growth tracking, and a community-driven knowledge base.",
         image: "/placeholder.svg",
         websiteUrl: "#",
         repositoryUrl: null,
+        architecture:
+          "Full-stack application with user authentication, data persistence, and real-time updates. Uses Next.js for the frontend and API routes for backend logic, with a database for storing user data and plant information.",
+        problem:
+          "Plant enthusiasts lacked a comprehensive tool to track their plant collections, receive care reminders, and access reliable plant care information.",
+        solution:
+          "Built a user-friendly platform with personalized plant tracking, automated care reminders, and a community-driven knowledge base. Implemented intuitive data visualization for plant growth tracking.",
+        techStack: ["Next.js", "React", "TypeScript", "Supabase"],
       },
       {
         id: "marky",
         name: "Marky",
         description: "Creative design and development studio portfolio.",
+        fullDescription:
+          "Marky is a creative design and development studio portfolio showcasing innovative projects, design processes, and team expertise. The platform serves as both a portfolio and a case study repository.",
         image: "/placeholder.svg",
         websiteUrl: "#",
         repositoryUrl: null,
+        architecture:
+          "Portfolio website with dynamic content management, project showcases, and interactive case studies. Uses Next.js for optimal performance and SEO, with a focus on visual storytelling and smooth animations.",
+        problem:
+          "The studio needed a portfolio that could effectively showcase their work, tell compelling stories about their projects, and demonstrate their design and development capabilities.",
+        solution:
+          "Developed a visually striking portfolio with smooth animations, detailed case studies, and an intuitive navigation system. Implemented a content management approach that makes it easy to add new projects and update content.",
+        techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
       },
     ],
   },

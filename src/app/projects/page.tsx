@@ -1,9 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
+import { ProjectDetailsDialog } from "@/components/featured-projects/project-details-dialog";
 
 export default function ProjectsPage() {
   const { projects } = portfolioData;
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects.featured)[number] | null
+  >(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
@@ -45,36 +53,53 @@ export default function ProjectsPage() {
               </div>
 
               <div className="p-6">
-                <h3 className="mb-2 text-xl font-semibold">{project.name}</h3>
-                <p className="mb-4 text-sm text-muted-foreground">
+                <h3 className="mb-2 text-lg font-semibold">{project.name}</h3>
+                <p className="mb-4 line-clamp-2 text-sm text-muted-foreground">
                   {project.description}
                 </p>
 
-                <div className="flex gap-3">
-                  <Link
-                    href={project.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    Visit Website
-                  </Link>
-                  {project.repositoryUrl && (
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-4">
                     <Link
-                      href={project.repositoryUrl}
+                      href={project.websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
-                      View Source
+                      Visit Website
                     </Link>
-                  )}
+                    {project.repositoryUrl && (
+                      <Link
+                        href={project.repositoryUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        View Source
+                      </Link>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => {
+                      setSelectedProject(project);
+                      setDialogOpen(true);
+                    }}
+                    className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    Read more
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <ProjectDetailsDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        project={selectedProject}
+      />
     </div>
   );
 }

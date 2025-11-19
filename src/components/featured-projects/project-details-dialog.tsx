@@ -1,0 +1,127 @@
+"use client";
+
+import {
+  Dialog,
+  DialogPopup,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/animate-ui/components/base/dialog";
+import Link from "next/link";
+
+interface ProjectDetails {
+  id: string;
+  name: string;
+  fullDescription: string;
+  image: string;
+  websiteUrl: string;
+  repositoryUrl: string | null;
+  architecture?: string;
+  problem?: string;
+  solution?: string;
+  techStack?: string[];
+}
+
+interface ProjectDetailsDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  project: ProjectDetails | null;
+}
+
+export function ProjectDetailsDialog({
+  open,
+  onOpenChange,
+  project,
+}: ProjectDetailsDialogProps) {
+  if (!project) return null;
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogPopup
+        showCloseButton={true}
+        className="w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+        from="top"
+      >
+        <DialogHeader className="relative mb-0 flex flex-row items-center justify-between gap-0 pr-8 text-left">
+          <DialogTitle className="text-2xl font-semibold leading-none">
+            {project.name}
+          </DialogTitle>
+        </DialogHeader>
+
+        <div className="mt-6 space-y-6">
+          <div>
+            <h3 className="mb-2 text-lg font-semibold">Description</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {project.fullDescription}
+            </p>
+          </div>
+
+          {project.problem && (
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Problem</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {project.problem}
+              </p>
+            </div>
+          )}
+
+          {project.solution && (
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Solution</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {project.solution}
+              </p>
+            </div>
+          )}
+
+          {project.architecture && (
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Architecture</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {project.architecture}
+              </p>
+            </div>
+          )}
+
+          {project.techStack && project.techStack.length > 0 && (
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Tech Stack</h3>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="border border-border bg-card px-3 py-1 text-xs font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="flex gap-4 pt-4">
+            <Link
+              href={project.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Visit Website
+            </Link>
+            {project.repositoryUrl && (
+              <Link
+                href={project.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                View Source
+              </Link>
+            )}
+          </div>
+        </div>
+      </DialogPopup>
+    </Dialog>
+  );
+}
+
