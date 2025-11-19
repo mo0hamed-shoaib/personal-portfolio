@@ -44,13 +44,21 @@ For the UI foundation, I chose Base UI over other options because it provides un
 
 **simple-icons** - Provides SVG icons for the tech stack section. Easy to use and keeps the bundle size reasonable.
 
+**Embla Carousel** - Powers the horizontal scrolling carousel for featured projects. Lightweight and performant with smooth scrolling and navigation controls.
+
 ## Design Language
 
-The design follows a minimal approach inspired by Swiss design principles. The layout uses a consistent max-width constraint across all sections for visual consistency. There are no rounded corners, keeping everything squared and clean.
+The design follows a minimal approach inspired by Swiss design principles. The layout uses a consistent max-width constraint (`max-w-3xl`) across all sections for visual consistency. There are no rounded corners, keeping everything squared and clean.
 
-The color system uses CSS variables that adapt to light and dark themes. Typography is simple and readable, with the Geist font family for both sans and mono text.
+A global vertical border structure connects all sections, creating a seamless boxy look that defines the content area. Cards feature Swiss-style corner accents—small plus signs positioned precisely on the border strokes—adding subtle visual interest while maintaining the minimal aesthetic.
 
-Animations are subtle and purposeful. They enhance the experience without being distracting, and they respect user preferences for reduced motion. The theme toggle uses smooth transitions, and interactive elements provide clear feedback.
+The color system uses CSS variables that adapt to light and dark themes. An accent color (orange) is used sparingly for interactive elements like the corner plus signs and "Details" links, providing subtle emphasis without overwhelming the design.
+
+Typography is simple and readable, with Geist Mono as the base font for body text and Geist Sans for headings and titles. This combination provides clear hierarchy while maintaining consistency.
+
+Featured projects are displayed in a horizontal scrolling carousel, showing one project at a time with smooth navigation. Experience and certifications use accordion components that expand to reveal detailed information, keeping the initial view clean and scannable.
+
+Animations are subtle and purposeful. They enhance the experience without being distracting, and they respect user preferences for reduced motion. The theme toggle uses smooth transitions, and interactive elements provide clear feedback. Sections reveal on scroll, and the entire page has a minimal viewport reveal animation on initial load.
 
 ## Why Base UI Instead of Radix UI
 
