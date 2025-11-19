@@ -6,8 +6,8 @@ export function FeaturedProjects() {
   const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl">
+    <section id="projects" className="py-16 md:py-24">
+      <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             Featured Projects

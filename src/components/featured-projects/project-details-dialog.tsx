@@ -7,12 +7,13 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/animate-ui/components/base/dialog";
+import { Separator } from "@base-ui-components/react/separator";
 import Link from "next/link";
 
 interface ProjectDetails {
   id: string;
   name: string;
-  fullDescription: string;
+  fullDescription?: string;
   image: string;
   websiteUrl: string;
   repositoryUrl: string | null;
@@ -48,13 +49,17 @@ export function ProjectDetailsDialog({
           </DialogTitle>
         </DialogHeader>
 
-        <div className="mt-6 space-y-6">
-          <div>
-            <h3 className="mb-2 text-lg font-semibold">Description</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {project.fullDescription}
-            </p>
-          </div>
+        <Separator orientation="horizontal" className="mt-2 mb-2 h-px bg-border" />
+
+        <div className="space-y-6">
+          {project.fullDescription && (
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Description</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {project.fullDescription}
+              </p>
+            </div>
+          )}
 
           {project.problem && (
             <div>
@@ -106,7 +111,7 @@ export function ProjectDetailsDialog({
               rel="noopener noreferrer"
               className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Visit Website
+              Website
             </Link>
             {project.repositoryUrl && (
               <Link
@@ -115,7 +120,7 @@ export function ProjectDetailsDialog({
                 rel="noopener noreferrer"
                 className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                View Source
+                Repository
               </Link>
             )}
           </div>
