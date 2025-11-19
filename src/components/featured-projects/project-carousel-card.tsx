@@ -16,7 +16,7 @@ interface Project {
   architecture?: string;
   problem?: string;
   solution?: string;
-  techStack?: string[];
+  techStack?: readonly string[];
 }
 
 interface ProjectCarouselCardProps {
