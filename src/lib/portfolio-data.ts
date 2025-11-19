@@ -27,7 +27,7 @@ export const portfolioData = {
           "Mo's Experiences is a comprehensive platform designed to showcase and manage unique experiences. The application provides users with an intuitive interface to discover, book, and share memorable experiences.",
         image: "/placeholder.svg",
         websiteUrl: "#",
-        repositoryUrl: null, // null if private
+        repositoryUrl: "https://github.com/mo0hamed-shoaib/mo-experiences",
         architecture:
           "Built with Next.js App Router for optimal performance and SEO. Utilizes Server Components for initial page loads and Client Components for interactive features. Implements a component-based architecture with reusable UI elements.",
         problem:
