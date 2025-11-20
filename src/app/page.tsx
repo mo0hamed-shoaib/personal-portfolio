@@ -5,6 +5,7 @@ import { TechStack } from "@/components/tech-stack/tech-stack";
 import { Experience } from "@/components/experience/experience";
 import { Certifications } from "@/components/certifications/certifications";
 import { AvailabilityStatus } from "@/components/availability-status/availability-status";
+import { GitHubActivity } from "@/components/github-activity/github-activity";
 import { Footer } from "@/components/footer/footer";
 import { ScrollToTop } from "@/components/scroll-to-top/scroll-to-top";
 import { PageLoadReveal } from "@/components/animations/page-load-reveal";
@@ -34,6 +35,9 @@ export default function Home() {
             </SectionWrapper>
             <SectionWrapper delay={0.1}>
               <AvailabilityStatus />
+            </SectionWrapper>
+            <SectionWrapper delay={0.1}>
+              <GitHubActivity />
             </SectionWrapper>
         </div>
         </div>
