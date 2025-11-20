@@ -44,7 +44,7 @@ export function ExperienceAccordionItem({
           className="group flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&[data-panel-open]>svg]:rotate-45 [&[data-panel-open]>svg]:scale-110"
         >
           <div className="flex-1">
-            <h4 className="font-semibold">{item.title}</h4>
+            <h4 className="text-base font-semibold">{item.title}</h4>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>{item.company}</span>
               <span>•</span>

@@ -131,7 +131,7 @@ export function GitHubActivity() {
 
   if (isLoading || !data) {
     return (
-      <section className="py-16 md:py-24">
+      <section className="border-t border-border pt-12 pb-16 md:pb-24">
         <div>
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -149,7 +149,7 @@ export function GitHubActivity() {
   }
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="border-t border-border pt-12 pb-16 md:pb-24">
       <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">

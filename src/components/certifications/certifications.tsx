@@ -21,7 +21,10 @@ export function Certifications() {
   }, []);
 
   return (
-    <section id="certifications" className="py-16 md:py-24">
+    <section
+      id="certifications"
+      className="border-t border-border pt-12 pb-16 md:pb-24"
+    >
       <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -55,7 +58,7 @@ export function Certifications() {
                     className="group flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&[data-panel-open]>svg]:rotate-45 [&[data-panel-open]>svg]:scale-110"
                   >
                     <div className="flex-1">
-                      <h3 className="font-semibold">{cert.name}</h3>
+                      <h3 className="text-lg font-semibold">{cert.name}</h3>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <span>{cert.issuer}</span>
                         <span>•</span>
@@ -104,7 +107,7 @@ export function Certifications() {
                 className="relative border border-border bg-card"
               >
                 <div className="px-4 py-3">
-                  <h3 className="font-semibold">{cert.name}</h3>
+                  <h3 className="text-lg font-semibold">{cert.name}</h3>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span>{cert.issuer}</span>
                     <span>•</span>

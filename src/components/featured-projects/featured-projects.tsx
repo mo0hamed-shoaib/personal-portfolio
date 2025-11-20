@@ -6,16 +6,13 @@ export function FeaturedProjects() {
   const { projects } = portfolioData;
 
   return (
-    <section id="projects" className="py-16 md:py-24">
+    <section id="projects" className="border-t border-border pt-12 pb-16 md:pb-24">
       <div>
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Featured Projects
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            A selection of projects I've worked on
-          </p>
-        </div>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                Featured Projects
+              </h2>
+            </div>
 
         <ProjectCarousel projects={projects.featured} />
 

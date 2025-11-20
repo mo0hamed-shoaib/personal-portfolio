@@ -17,7 +17,10 @@ export function Experience() {
   }, []);
 
   return (
-    <section id="experience" className="py-16 md:py-24">
+    <section
+      id="experience"
+      className="border-t border-border pt-12 pb-16 md:pb-24"
+    >
       <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">

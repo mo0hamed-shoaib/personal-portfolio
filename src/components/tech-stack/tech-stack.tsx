@@ -7,16 +7,13 @@ export function TechStack() {
   const { techStack } = portfolioData;
 
   return (
-    <section id="tech-stack" className="py-16 md:py-24">
+    <section id="tech-stack" className="border-t border-border pt-12 pb-16 md:pb-24">
       <div>
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Tech Stack
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Technologies I work with
-          </p>
-        </div>
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                Tech Stack
+              </h2>
+            </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {techStack.map((tech, index) => {
