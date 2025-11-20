@@ -6,7 +6,7 @@ export const portfolioData = {
     name: "Mohamed Gamal",
     jobTitle: "Frontend Developer",
     bio: "Passionate frontend developer building modern web experiences with React and Next.js.",
-    avatar: "/placeholder.svg",
+    avatar: "/assets/avatars/portfolio-pfp.jpg",
     availability: {
       status: "Open to work",
       label: "Available for new opportunities",
