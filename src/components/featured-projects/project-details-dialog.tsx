@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import {
   Dialog,
   DialogPopup,
@@ -9,6 +10,7 @@ import {
 } from "@/components/animate-ui/components/base/dialog";
 import { Separator } from "@base-ui-components/react/separator";
 import Link from "next/link";
+import { useDialogScrollReset } from "@/hooks/use-dialog-scroll-reset";
 
 interface ProjectDetails {
   id: string;
@@ -34,6 +36,11 @@ export function ProjectDetailsDialog({
   onOpenChange,
   project,
 }: ProjectDetailsDialogProps) {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+
+  // Reset scroll position when dialog opens
+  useDialogScrollReset({ isOpen: open });
+
   if (!project) return null;
 
   return (
@@ -42,9 +49,10 @@ export function ProjectDetailsDialog({
         showCloseButton={true}
         className="w-full max-w-3xl max-h-[90vh] overflow-y-auto"
         from="top"
+        initialFocus={titleRef}
       >
         <DialogHeader className="relative mb-0 flex flex-row items-center justify-between gap-0 pr-8 text-left">
-          <DialogTitle className="text-2xl font-semibold leading-none">
+          <DialogTitle ref={titleRef} className="text-2xl font-semibold leading-none">
             {project.name}
           </DialogTitle>
         </DialogHeader>
