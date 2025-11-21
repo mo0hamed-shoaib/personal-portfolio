@@ -37,21 +37,15 @@ export const metadata: Metadata = {
     siteName: `${personal.name} - Portfolio`,
     title: `${personal.name} - ${personal.jobTitle}`,
     description: personal.bio,
-    images: [
-      {
-        url: `${siteUrl}${personal.avatar}`,
-        width: 1200,
-        height: 630,
-        alt: `${personal.name} - ${personal.jobTitle}`,
-      },
-    ],
+    // Next.js automatically adds opengraph-image tags when using file-based convention
+    // No need to specify images here - they're generated from opengraph-image.tsx
   },
   twitter: {
     card: "summary_large_image",
     title: `${personal.name} - ${personal.jobTitle}`,
     description: personal.bio,
     creator: personal.socialLinks.x.replace("https://x.com/", "@"),
-    images: [`${siteUrl}${personal.avatar}`],
+    // Next.js automatically uses opengraph-image for Twitter if twitter-image is not present
   },
   robots: {
     index: true,
@@ -68,7 +62,7 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/web-app-manifest-192x192.png",
   },
-  manifest: "/manifest.json",
+  // Next.js automatically handles manifest.ts file-based convention
   alternates: {
     canonical: siteUrl,
   },

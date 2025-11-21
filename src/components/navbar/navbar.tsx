@@ -67,6 +67,7 @@ export function Navbar() {
                   height={24}
                   className="h-6 w-6"
                   priority
+                  fetchPriority="high"
                 />
               ) : (
                 <Image
@@ -76,6 +77,7 @@ export function Navbar() {
                   height={24}
                   className="h-6 w-6"
                   priority
+                  fetchPriority="high"
                 />
               )}
             </Link>
