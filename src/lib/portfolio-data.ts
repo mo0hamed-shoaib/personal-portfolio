@@ -26,8 +26,8 @@ export const portfolioData = {
         fullDescription:
           "Mo's Experiences is a comprehensive platform designed to showcase and manage unique experiences. The application provides users with an intuitive interface to discover, book, and share memorable experiences.",
         image: "/assets/projects/mos-experiences/mosexperiences.jpg",
-        websiteUrl: "#",
-        repositoryUrl: "https://github.com/mo0hamed-shoaib/mo-experiences",
+        websiteUrl: "https://www.mosexperiences.com/",
+        repositoryUrl: null,
         architecture:
           "Built with Next.js App Router for optimal performance and SEO. Utilizes Server Components for initial page loads and Client Components for interactive features. Implements a component-based architecture with reusable UI elements.",
         problem:
@@ -43,7 +43,7 @@ export const portfolioData = {
         fullDescription:
           "Dana Doors is an e-commerce platform specializing in premium door solutions. The platform offers a seamless shopping experience with detailed product catalogs, customization options, and secure checkout processes.",
         image: "/assets/projects/dana-doors/dana-doors.jpg",
-        websiteUrl: "#",
+        websiteUrl: "https://www.danadoors.net/",
         repositoryUrl: null,
         architecture:
           "E-commerce architecture with product catalog management, shopping cart functionality, and order processing. Uses Next.js for server-side rendering and API routes for backend operations.",
@@ -60,8 +60,8 @@ export const portfolioData = {
         fullDescription:
           "Rootly is an innovative platform designed for plant enthusiasts to track, manage, and learn about their plant collections. Features include plant care reminders, growth tracking, and a community-driven knowledge base.",
         image: "/assets/projects/rootly-notes/rootly-notes.jpg",
-        websiteUrl: "#",
-        repositoryUrl: null,
+        websiteUrl: "https://rootly-notes-app.vercel.app/",
+        repositoryUrl: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
         architecture:
           "Full-stack application with user authentication, data persistence, and real-time updates. Uses Next.js for the frontend and API routes for backend logic, with a database for storing user data and plant information.",
         problem:
@@ -77,8 +77,8 @@ export const portfolioData = {
         fullDescription:
           "Marky is a creative design and development studio portfolio showcasing innovative projects, design processes, and team expertise. The platform serves as both a portfolio and a case study repository.",
         image: "/assets/projects/marky-editor/marky-editor.jpg",
-        websiteUrl: "#",
-        repositoryUrl: null,
+        websiteUrl: "https://marky-editor.vercel.app/",
+        repositoryUrl: "https://github.com/mo0hamed-shoaib/marky-editor",
         architecture:
           "Portfolio website with dynamic content management, project showcases, and interactive case studies. Uses Next.js for optimal performance and SEO, with a focus on visual storytelling and smooth animations.",
         problem:
