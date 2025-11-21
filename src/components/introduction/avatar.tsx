@@ -35,6 +35,8 @@ export function Avatar({ src, alt }: AvatarProps) {
           src={src}
           alt={alt}
           fill
+          quality={95}
+          sizes="128px"
           className={`object-cover transition-opacity duration-300 ${
             imageLoading ? "opacity-0" : "opacity-100"
           }`}
