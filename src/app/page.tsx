@@ -10,12 +10,14 @@ import { Footer } from "@/components/footer/footer";
 import { ScrollToTop } from "@/components/scroll-to-top/scroll-to-top";
 import { PageLoadReveal } from "@/components/animations/page-load-reveal";
 import { SectionWrapper } from "@/components/animations/section-wrapper";
+import { SkipToMain } from "@/components/skip-to-main/skip-to-main";
 
 export default function Home() {
   return (
     <PageLoadReveal>
+      <SkipToMain />
       <Navbar />
-      <main className="relative">
+      <main id="main-content" className="relative" tabIndex={-1}>
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl border-x border-border">
             <SectionWrapper>
@@ -39,7 +41,7 @@ export default function Home() {
             <SectionWrapper delay={0.1}>
               <GitHubActivity />
             </SectionWrapper>
-        </div>
+          </div>
         </div>
       </main>
       <Footer />

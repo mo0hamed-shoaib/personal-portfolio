@@ -6,7 +6,6 @@ import {
   DialogPopup,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
 } from "@/components/animate-ui/components/base/dialog";
 import { Separator } from "@base-ui-components/react/separator";
 import Link from "next/link";

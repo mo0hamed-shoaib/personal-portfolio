@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 import { ProjectDetailsDialog } from "@/components/featured-projects/project-details-dialog";
+import { SkipToMain } from "@/components/skip-to-main/skip-to-main";
 
 export default function ProjectsPage() {
   const { projects } = portfolioData;
@@ -14,8 +15,10 @@ export default function ProjectsPage() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-3xl">
+    <>
+      <SkipToMain />
+      <div className="container mx-auto px-4 py-16 md:py-24">
+        <div className="mx-auto max-w-3xl">
         <div className="mb-12">
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
             All Projects
@@ -48,6 +51,8 @@ export default function ProjectsPage() {
                   src={project.image}
                   alt={project.name}
                   fill
+                  quality={95}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
@@ -84,6 +89,7 @@ export default function ProjectsPage() {
                       setSelectedProject(project);
                       setDialogOpen(true);
                     }}
+                    aria-label={`Read more about ${project.name}`}
                     className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     Read more
@@ -100,7 +106,8 @@ export default function ProjectsPage() {
         onOpenChange={setDialogOpen}
         project={selectedProject}
       />
-    </div>
+      </div>
+    </>
   );
 }
 
