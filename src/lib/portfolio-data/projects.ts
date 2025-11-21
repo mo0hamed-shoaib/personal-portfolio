@@ -24,6 +24,7 @@
  * - Keep descriptions clear and concise
  * - Use null for private repositories
  * - Image paths should be relative to /public directory
+ * - Use "/placeholder.svg" for projects without images yet
  * - Separate each project with a clear separator (see below)
  */
 
