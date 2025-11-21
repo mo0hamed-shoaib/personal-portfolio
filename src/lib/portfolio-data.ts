@@ -25,7 +25,7 @@ export const portfolioData = {
         description: "A modern web application showcasing unique experiences.",
         fullDescription:
           "Mo's Experiences is a comprehensive platform designed to showcase and manage unique experiences. The application provides users with an intuitive interface to discover, book, and share memorable experiences.",
-        image: "/placeholder.svg",
+        image: "/assets/projects/mos-experiences/mosexperiences.jpg",
         websiteUrl: "#",
         repositoryUrl: "https://github.com/mo0hamed-shoaib/mo-experiences",
         architecture:
@@ -42,7 +42,7 @@ export const portfolioData = {
         description: "E-commerce platform for premium door solutions.",
         fullDescription:
           "Dana Doors is an e-commerce platform specializing in premium door solutions. The platform offers a seamless shopping experience with detailed product catalogs, customization options, and secure checkout processes.",
-        image: "/placeholder.svg",
+        image: "/assets/projects/dana-doors/dana-doors.jpg",
         websiteUrl: "#",
         repositoryUrl: null,
         architecture:
@@ -59,7 +59,7 @@ export const portfolioData = {
         description: "Innovative platform for plant enthusiasts.",
         fullDescription:
           "Rootly is an innovative platform designed for plant enthusiasts to track, manage, and learn about their plant collections. Features include plant care reminders, growth tracking, and a community-driven knowledge base.",
-        image: "/placeholder.svg",
+        image: "/assets/projects/rootly-notes/rootly-notes.jpg",
         websiteUrl: "#",
         repositoryUrl: null,
         architecture:
@@ -76,7 +76,7 @@ export const portfolioData = {
         description: "Creative design and development studio portfolio.",
         fullDescription:
           "Marky is a creative design and development studio portfolio showcasing innovative projects, design processes, and team expertise. The platform serves as both a portfolio and a case study repository.",
-        image: "/placeholder.svg",
+        image: "/assets/projects/marky-editor/marky-editor.jpg",
         websiteUrl: "#",
         repositoryUrl: null,
         architecture:
