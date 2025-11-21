@@ -61,7 +61,7 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2">
               {mounted && resolvedTheme === "dark" ? (
                 <Image
-                  src="/assets/logo-for-navbar-and-general-use/mg-logo-white.svg"
+                  src="/assets/logos/mg-logo-white.svg"
                   alt={`${portfolioData.personal.name} logo`}
                   width={24}
                   height={24}
@@ -70,7 +70,7 @@ export function Navbar() {
                 />
               ) : (
                 <Image
-                  src="/assets/logo-for-navbar-and-general-use/mg-logo-black.svg"
+                  src="/assets/logos/mg-logo-black.svg"
                   alt={`${portfolioData.personal.name} logo`}
                   width={24}
                   height={24}

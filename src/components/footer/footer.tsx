@@ -38,7 +38,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               {mounted && resolvedTheme === "dark" ? (
                 <Image
-                  src="/assets/logo-for-navbar-and-general-use/mg-logo-white.svg"
+                  src="/assets/logos/mg-logo-white.svg"
                   alt={`${personal.name} logo`}
                   width={24}
                   height={24}
@@ -46,7 +46,7 @@ export function Footer() {
                 />
               ) : (
                 <Image
-                  src="/assets/logo-for-navbar-and-general-use/mg-logo-black.svg"
+                  src="/assets/logos/mg-logo-black.svg"
                   alt={`${personal.name} logo`}
                   width={24}
                   height={24}
