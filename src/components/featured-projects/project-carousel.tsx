@@ -7,11 +7,6 @@ import { ProjectDetailsDialog } from "./project-details-dialog";
 import { ProjectCarouselCard } from "./project-carousel-card";
 import { ProjectCarouselContainer } from "./project-carousel-container";
 import { ChevronLeftIcon, ChevronRightIcon } from "./project-carousel-icons";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipPanel,
-} from "@/components/animate-ui/components/base/tooltip";
 
 interface Project {
   id: string;
@@ -40,6 +35,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
   });
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -55,6 +51,7 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
     if (!emblaApi) return;
     setPrevBtnDisabled(!emblaApi.canScrollPrev());
     setNextBtnDisabled(!emblaApi.canScrollNext());
+    setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
@@ -88,41 +85,30 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
         </div>
       </ProjectCarouselContainer>
 
-      <div className="mt-6 flex items-center justify-center gap-4">
-        <Tooltip>
-          <TooltipTrigger
-            render={
-              <Button
-                onClick={scrollPrev}
-                disabled={prevBtnDisabled}
-                className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Previous project"
-              >
-                <ChevronLeftIcon />
-              </Button>
-            }
-          />
-          <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
-            Previous project
-          </TooltipPanel>
-        </Tooltip>
-        <Tooltip>
-          <TooltipTrigger
-            render={
-              <Button
-                onClick={scrollNext}
-                disabled={nextBtnDisabled}
-                className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
-                aria-label="Next project"
-              >
-                <ChevronRightIcon />
-              </Button>
-            }
-          />
-          <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
-            Next project
-          </TooltipPanel>
-        </Tooltip>
+      <div className="mt-6 flex flex-col items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
+          <Button
+            onClick={scrollPrev}
+            disabled={prevBtnDisabled}
+            className="flex h-11 min-w-[88px] cursor-pointer items-center justify-center gap-1.5 border border-border bg-background px-3 py-2 text-xs font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed md:min-w-[100px] md:gap-2 md:px-4 md:text-sm"
+            aria-label="Previous project"
+          >
+            <ChevronLeftIcon className="h-4 w-4 md:h-5 md:w-5" />
+            <span>Back</span>
+          </Button>
+          <Button
+            onClick={scrollNext}
+            disabled={nextBtnDisabled}
+            className="flex h-11 min-w-[88px] cursor-pointer items-center justify-center gap-1.5 border border-border bg-background px-3 py-2 text-xs font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed md:min-w-[100px] md:gap-2 md:px-4 md:text-sm"
+            aria-label="Next project"
+          >
+            <span>Next</span>
+            <ChevronRightIcon className="h-4 w-4 md:h-5 md:w-5" />
+          </Button>
+        </div>
+        <span className="text-xs text-muted-foreground md:text-sm">
+          ({selectedIndex + 1} of {projects.length})
+        </span>
       </div>
 
       <ProjectDetailsDialog
