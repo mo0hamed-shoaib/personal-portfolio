@@ -12,9 +12,8 @@
  * - title: Job title
  * - company: Company name
  * - period: Employment period (e.g., "2024 - Present")
- * - responsibilities: Array of responsibility strings (3-5 items)
- * - learnings: Array of learning strings (2-3 items)
- * - description: Brief job description (1 sentence)
+ * - responsibilities: Array of responsibility strings
+ * - learnings: Array of learning strings
  *
  * TIPS:
  * - List experiences in reverse chronological order (most recent first)
@@ -25,44 +24,21 @@
 
 export const experience = [
   // ========================================
-  // Frontend Developer
+  // Search Engine Evaluator
   // ========================================
   {
     id: "exp-1",
-    title: "Frontend Developer",
-    company: "Company Name",
-    period: "2024 - Present",
+    title: "Search Engine Evaluator",
+    company: "TELUS International",
+    period: "Sep 2019 - May 2024",
     responsibilities: [
-      "Collaborated with designers to translate Figma files into responsive interfaces",
-      "Built reusable UI components with Base UI and Tailwind CSS",
-      "Implemented theming, accessibility, and dashboard workflows",
+      "Evaluated the helpfulness of search results on Google Search Engine",
+      "Corrected Google Maps businesses information and moderated their content",
     ],
     learnings: [
-      "Deeper understanding of React Server Components",
-      "Improved performance tuning and Lighthouse scoring",
+      "Learned how to search the internet and find key Information quickly",
+      "Grown an attention for detail and eagerness to learn",
     ],
-    description: "Building modern web applications with React and Next.js",
-  },
-
-  // ========================================
-  // Frontend Engineer
-  // ========================================
-  {
-    id: "exp-2",
-    title: "Frontend Engineer",
-    company: "Creative Studio",
-    period: "2022 - 2024",
-    responsibilities: [
-      "Delivered responsive marketing websites using Next.js and Motion",
-      "Maintained a shared component library for multiple project teams",
-      "Integrated analytics, A/B testing, and CMS content models",
-    ],
-    learnings: [
-      "Strengthened design system thinking and documentation",
-      "Learned advanced animation patterns and interaction design",
-    ],
-    description:
-      "Delivered responsive interfaces and design systems for marketing websites using Next.js and Tailwind CSS",
   },
 ] as const;
 
@@ -80,9 +56,8 @@ export const experience = [
  * - title: Internship title
  * - company: Company name
  * - period: Internship period (e.g., "2023 - 2024")
- * - responsibilities: Array of responsibility strings (2-4 items)
- * - learnings: Array of learning strings (2-3 items)
- * - description: Brief internship description (1 sentence)
+ * - responsibilities: Array of responsibility strings
+ * - learnings: Array of learning strings
  *
  * TIPS:
  * - List internships in reverse chronological order (most recent first)
@@ -92,22 +67,20 @@ export const experience = [
 
 export const internships = [
   // ========================================
-  // Frontend Development Intern
+  // Full-Stack MERN Developer
   // ========================================
   {
     id: "intern-1",
-    title: "Frontend Development Intern",
-    company: "Company Name",
-    period: "2023 - 2024",
+    title: "Full-Stack MERN Developer",
+    company: "Information Technology Institute (ITI)",
+    period: "Feb 2025 - Jul 2025",
     responsibilities: [
-      "Implemented UI tickets under senior developer guidance",
-      "Helped document shared components and write unit tests",
+      "Developed and deployed 4 full-stack web applications during ITI training, including social, e-commerce, and dashboard platforms",
+      "Led a 5-member team in building a MERN-based project, delivering it within a 3-week sprint under Agile methodology",
     ],
     learnings: [
-      "Understood agile workflows and code review best practices",
-      "Gained confidence with TypeScript and component-driven development",
+      "Learned how to communicate with students and supervisors",
+      "Learned how to have a mindset to achieve success",
     ],
-    description: "Learned and contributed to frontend development projects",
   },
 ] as const;
-
