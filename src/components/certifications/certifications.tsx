@@ -68,6 +68,9 @@ export function Certifications() {
                     <PlusIcon className="h-3 w-3 shrink-0 transition-transform duration-200" />
                   </AccordionTrigger>
                   <AccordionPanel className="px-4 pb-4 space-y-4 text-sm text-muted-foreground">
+                    {cert.description ? (
+                      <p className="text-foreground">{cert.description}</p>
+                    ) : null}
                     {cert.learnings?.length ? (
                       <div className="space-y-2">
                         <p className="font-medium text-foreground">
@@ -81,17 +84,17 @@ export function Certifications() {
                       </div>
                     ) : null}
                     <div>
-                      {cert.credentialUrl ? (
+                      {cert.certificateUrl ? (
                         <Link
-                          href={cert.credentialUrl}
+                          href={cert.certificateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm text-primary hover:underline"
                         >
-                          View Credential →
+                          View Certificate →
                         </Link>
                       ) : (
-                        <p>No credential link available.</p>
+                        <p>No certificate link available.</p>
                       )}
                     </div>
                   </AccordionPanel>

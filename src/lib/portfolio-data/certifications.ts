@@ -12,55 +12,51 @@
  * - name: Certification name
  * - issuer: Issuing organization
  * - date: Year obtained (e.g., "2024")
- * - learnings: Array of learning strings (1-3 items)
- * - credentialUrl: URL to verify credential (or null if not available)
+ * - description: Description text about the certification
+ * - learnings: Array of learning strings (what you learned)
+ * - certificateUrl: URL to view certificate (or null if not available)
  *
  * TIPS:
  * - List certifications in reverse chronological order (most recent first)
  * - Keep learnings specific and relevant
- * - Use null for credentialUrl if verification link is not available
+ * - Use null for certificateUrl if verification link is not available
  * - Separate each certification with a clear separator (see below)
  */
 
 export const certifications = [
   // ========================================
-  // Certification Name
+  // Full-Stack MERN - Information Technology Institute
   // ========================================
   {
     id: "cert-1",
-    name: "Certification Name",
-    issuer: "Issuing Organization",
-    date: "2024",
-    learnings: ["Mastered core React concepts and state management patterns"],
-    credentialUrl: null,
+    name: "Full-Stack MERN",
+    issuer: "Information Technology Institute",
+    date: "Jul 2025",
+    description:
+      "Certificate of graduation from the Information Technology Institute (ITI) in Egypt (Feb 2025 - Jul 2025) - 5 months.",
+    learnings: [
+      "MongoDB, Express.js, React, and Node.js",
+      "Full-stack application development and deployment",
+    ],
+    certificateUrl:
+      "https://drive.google.com/file/d/1mu1tMVlfn6hDeHZGgt6L8TpvYYU1q9Mg/view",
   },
 
   // ========================================
-  // Advanced React
+  // Graduation Certificate
   // ========================================
   {
     id: "cert-2",
-    name: "Advanced React",
-    issuer: "React Training",
-    date: "2023",
+    name: "Graduation Certificate",
+    issuer: "Misr University for Science and Technology",
+    date: "June 1, 2021",
+    description:
+      "Certificate of graduation from Misr University for Science and Technology for my Bachelor's degree in Computer Science (Oct 2017 – Jun 2021).",
     learnings: [
-      "Hook patterns, concurrent rendering, and performance optimizations",
+      "Computer Science fundamentals, Operating Systems, and Computer Networks",
+      "Software Engineering and system design",
     ],
-    credentialUrl: "#",
-  },
-
-  // ========================================
-  // JavaScript Algorithms
-  // ========================================
-  {
-    id: "cert-3",
-    name: "JavaScript Algorithms",
-    issuer: "FreeCodeCamp",
-    date: "2022",
-    learnings: [
-      "Data structures, algorithmic thinking, and problem solving techniques",
-    ],
-    credentialUrl: "#",
+    certificateUrl:
+      "https://drive.google.com/file/d/18-7fbodbrCyFqutgqZncntsCsTH68HnV/view",
   },
 ] as const;
-
