@@ -7,6 +7,11 @@ import { ProjectDetailsDialog } from "./project-details-dialog";
 import { ProjectCarouselCard } from "./project-carousel-card";
 import { ProjectCarouselContainer } from "./project-carousel-container";
 import { ChevronLeftIcon, ChevronRightIcon } from "./project-carousel-icons";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipPanel,
+} from "@/components/animate-ui/components/base/tooltip";
 
 interface Project {
   id: string;
@@ -84,22 +89,40 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
       </ProjectCarouselContainer>
 
       <div className="mt-6 flex items-center justify-center gap-4">
-        <Button
-          onClick={scrollPrev}
-          disabled={prevBtnDisabled}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label="Previous project"
-        >
-          <ChevronLeftIcon />
-        </Button>
-        <Button
-          onClick={scrollNext}
-          disabled={nextBtnDisabled}
-          className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
-          aria-label="Next project"
-        >
-          <ChevronRightIcon />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Button
+                onClick={scrollPrev}
+                disabled={prevBtnDisabled}
+                className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Previous project"
+              >
+                <ChevronLeftIcon />
+              </Button>
+            }
+          />
+          <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+            Previous project
+          </TooltipPanel>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger
+            render={
+              <Button
+                onClick={scrollNext}
+                disabled={nextBtnDisabled}
+                className="flex h-10 w-10 cursor-pointer items-center justify-center border border-border bg-background p-0 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Next project"
+              >
+                <ChevronRightIcon />
+              </Button>
+            }
+          />
+          <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+            Next project
+          </TooltipPanel>
+        </Tooltip>
       </div>
 
       <ProjectDetailsDialog

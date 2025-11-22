@@ -123,7 +123,7 @@ export function BookMeetingDialog({
             <Button
               type="button"
               onClick={() => onOpenChange(false)}
-              className="h-10 border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="h-10 cursor-pointer border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Cancel
             </Button>
@@ -131,7 +131,7 @@ export function BookMeetingDialog({
               type="submit"
               disabled={loading}
               focusableWhenDisabled
-              className="h-10 bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
+              className="h-10 cursor-pointer bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send Message"}
             </Button>

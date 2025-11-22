@@ -103,7 +103,7 @@ export function Navbar() {
                         modes={["light", "dark"]}
                         variant="ghost"
                         size="sm"
-                        className="h-8 w-8"
+                        className="h-8 w-8 cursor-pointer"
                         aria-label="Toggle theme"
                       />
                     }

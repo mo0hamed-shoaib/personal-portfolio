@@ -23,7 +23,7 @@ export function Certifications() {
   return (
     <section
       id="certifications"
-      className="border-t border-border pt-12 pb-16 md:pb-24"
+      className="border-t border-border pt-16 pb-16"
     >
       <div>
         <div className="mb-12 text-center">
