@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { portfolioData } from "@/lib/portfolio-data";
 import { ProjectCarousel } from "./project-carousel";
 
@@ -15,15 +14,6 @@ export function FeaturedProjects() {
             </div>
 
         <ProjectCarousel projects={projects.featured} />
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/projects"
-            className="inline-flex items-center justify-center border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            View All Projects
-          </Link>
-        </div>
       </div>
     </section>
   );
