@@ -8,7 +8,7 @@ This portfolio showcases my work as a frontend developer. The site is built with
 
 ## Architecture
 
-The project follows Next.js App Router conventions with a clear separation between server and client components. Most of the UI is rendered on the server to reduce JavaScript bundle size and improve initial load performance. Client components are only used where interactivity is needed, like the theme toggle or contact form.
+The project follows Next.js App Router conventions with a clear separation between server and client components. Most of the UI is rendered on the server to reduce JavaScript bundle size and improve initial load performance. Client components are only used where interactivity is needed, like the theme toggle.
 
 The codebase is organized into logical sections. Components are kept small, typically under 200 lines, and split by responsibility. Each portfolio section is its own component, making the codebase easy to navigate and maintain.
 
@@ -37,10 +37,6 @@ For the UI foundation, I chose Base UI over other options because it provides un
 **Animate UI** - Adds smooth animations to Base UI components using Motion. Animations respect user preferences for reduced motion, so the site stays accessible.
 
 **next-themes** - Handles dark mode switching with proper SSR support and no flash of wrong theme.
-
-**Resend** - Powers the contact form email functionality. Simple API that handles sending emails from the contact form.
-
-**Sonner** - Toast notifications for user feedback when submitting the contact form.
 
 **simple-icons** - Provides SVG icons for the tech stack section. Easy to use and keeps the bundle size reasonable.
 
