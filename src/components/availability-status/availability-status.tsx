@@ -5,7 +5,7 @@ export function AvailabilityStatus() {
   const { personal } = portfolioData;
 
   return (
-    <section className="border-t border-border pt-16 pb-16">
+    <section className="border-t border-dashed border-border pt-16 pb-16">
       <div>
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
@@ -63,4 +63,3 @@ export function AvailabilityStatus() {
     </section>
   );
 }
-

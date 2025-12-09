@@ -7,13 +7,16 @@ export function TechStack() {
   const { techStack } = portfolioData;
 
   return (
-    <section id="tech-stack" className="border-t border-border pt-16 pb-16">
+    <section
+      id="tech-stack"
+      className="border-t border-dashed border-border pt-16 pb-16"
+    >
       <div>
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Tech Stack
-              </h2>
-            </div>
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            Tech Stack
+          </h2>
+        </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           {techStack.map((tech, index) => {
@@ -21,13 +24,15 @@ export function TechStack() {
               .split(/[.-]/)
               .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
               .join("")}` as keyof typeof SimpleIcons;
-            const icon = (SimpleIcons as unknown as Record<
-              string,
-              { svg: string; hex: string }
-            >)[iconKey];
+            const icon = (
+              SimpleIcons as unknown as Record<
+                string,
+                { svg: string; hex: string }
+              >
+            )[iconKey];
             const iconMarkup = icon?.svg.replace(
               /<svg /,
-              `<svg fill="currentColor" `,
+              `<svg fill="currentColor" `
             );
 
             const isLeftColumn = index % 2 === 0;
@@ -40,12 +45,12 @@ export function TechStack() {
                 key={tech.name}
                 className={`relative flex items-start gap-4 ${borderClasses} bg-card p-6`}
               >
-                    <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                      +
-                    </span>
-                    <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                      +
-                    </span>
+                <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
+                  +
+                </span>
+                <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
+                  +
+                </span>
                 <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
                   +
                 </span>

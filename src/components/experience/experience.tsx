@@ -19,7 +19,7 @@ export function Experience() {
   return (
     <section
       id="experience"
-      className="border-t border-border pt-16 pb-16"
+      className="border-t border-dashed border-border pt-16 pb-16"
     >
       <div>
         <div className="mb-12 text-center">
