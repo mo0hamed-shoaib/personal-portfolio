@@ -12,7 +12,7 @@ export function Avatar({ src, alt }: AvatarProps) {
   const [imageLoading, setImageLoading] = useState(true);
 
   return (
-    <div className="relative h-32 w-32 flex-shrink-0 border border-border">
+    <div className="relative h-36 w-36 flex-shrink-0 border border-border">
       <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
         +
       </span>
@@ -36,7 +36,7 @@ export function Avatar({ src, alt }: AvatarProps) {
           alt={alt}
           fill
           quality={95}
-          sizes="128px"
+          sizes="192px"
           fetchPriority="high"
           className={`object-cover transition-opacity duration-300 ${
             imageLoading ? "opacity-0" : "opacity-100"
@@ -49,4 +49,3 @@ export function Avatar({ src, alt }: AvatarProps) {
     </div>
   );
 }
-
