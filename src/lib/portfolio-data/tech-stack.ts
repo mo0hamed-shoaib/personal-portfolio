@@ -69,5 +69,28 @@ export const techStack = [
     iconSlug: "supabase",
     websiteUrl: "https://supabase.com",
   },
-] as const;
 
+  // ========================================
+  // Tailwind CSS
+  // ========================================
+  {
+    name: "Tailwind CSS",
+    description: "Utility-first CSS framework",
+    longDescription:
+      "Tailwind CSS provides a comprehensive set of utility classes for rapidly building custom designs. I use it for styling components and creating responsive, modern user interfaces with minimal custom CSS.",
+    iconSlug: "tailwindcss",
+    websiteUrl: "https://tailwindcss.com",
+  },
+
+  // ========================================
+  // shadcn/ui
+  // ========================================
+  {
+    name: "shadcn/ui",
+    description: "High-quality React component library",
+    longDescription:
+      "shadcn/ui provides beautifully designed, customizable React components built on top of Radix UI and Tailwind CSS. I use it for accessible, production-ready UI components that can be easily integrated and modified to match project needs.",
+    iconSlug: "shadcnui",
+    websiteUrl: "https://ui.shadcn.com",
+  },
+] as const;
