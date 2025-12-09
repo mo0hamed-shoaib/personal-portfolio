@@ -51,12 +51,18 @@ export function ProjectDetailsDialog({
         initialFocus={titleRef}
       >
         <DialogHeader className="relative mb-0 flex flex-row items-center justify-between gap-0 pr-8 text-left">
-          <DialogTitle ref={titleRef} className="text-2xl font-semibold leading-none">
+          <DialogTitle
+            ref={titleRef}
+            className="text-2xl font-semibold leading-none"
+          >
             {project.name}
           </DialogTitle>
         </DialogHeader>
 
-        <Separator orientation="horizontal" className="mt-2 mb-2 h-px bg-border" />
+        <Separator
+          orientation="horizontal"
+          className="mt-2 mb-2 h-px bg-border"
+        />
 
         <div className="space-y-6">
           {project.fullDescription && (
@@ -136,4 +142,3 @@ export function ProjectDetailsDialog({
     </Dialog>
   );
 }
-
