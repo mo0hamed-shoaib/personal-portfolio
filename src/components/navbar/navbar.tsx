@@ -28,6 +28,7 @@ const navLinks = [
 
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { resolvedTheme } = useTheme();
   const router = useRouter();
 
@@ -118,13 +119,19 @@ export function Navbar() {
 
               {/* Mobile Menu */}
               {mounted && (
-                <Menu>
+                <Menu open={menuOpen} onOpenChange={setMenuOpen}>
                   <MenuTrigger
+                    nativeButton={false}
                     className="flex h-8 w-8 cursor-pointer items-center justify-center bg-transparent transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:hidden"
-                    aria-label="Open navigation menu"
-                  >
-                    <MenuIcon />
-                  </MenuTrigger>
+                    aria-label={
+                      menuOpen
+                        ? "Close navigation menu"
+                        : "Open navigation menu"
+                    }
+                    render={
+                      <div>{menuOpen ? <CloseIcon /> : <MenuIcon />}</div>
+                    }
+                  />
                   <MenuPanel
                     className="w-auto border border-border bg-popover py-1 text-popover-foreground shadow-none rounded-none [&>div]:rounded-none [&>div>div]:rounded-none"
                     sideOffset={8}
@@ -169,6 +176,25 @@ function MenuIcon(props: React.ComponentProps<"svg">) {
       <path d="M2.5 5H17.5" />
       <path d="M2.5 10H17.5" />
       <path d="M2.5 15H17.5" />
+    </svg>
+  );
+}
+
+function CloseIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M15 5L5 15" />
+      <path d="M5 5L15 15" />
     </svg>
   );
 }
