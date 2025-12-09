@@ -36,19 +36,28 @@ export const projects = {
     {
       id: "mo-experiences",
       name: "Mo's Experiences",
-      description: "A modern web application showcasing unique experiences.",
+      description:
+        "Egyptian travel platform connecting tourists with authentic desert adventures and Nile experiences.",
       fullDescription:
-        "Mo's Experiences is a comprehensive platform designed to showcase and manage unique experiences. The application provides users with an intuitive interface to discover, book, and share memorable experiences.",
+        "A booking platform for Mo's Experiences, an Egyptian tour agency specializing in desert safaris and Nile cruises. Handles custom trip inquiries with real-time notifications, showcases destination packages, and streamlines communication between travelers and guides.",
       image: "/assets/projects/mos-experiences/mosexperiences.jpg",
       websiteUrl: "https://www.mosexperiences.com/",
       repositoryUrl: null,
       architecture:
-        "Built with Next.js App Router for optimal performance and SEO. Utilizes Server Components for initial page loads and Client Components for interactive features. Implements a component-based architecture with reusable UI elements.",
+        "Server-rendered with Next.js 15 App Router. Uses Supabase for inquiry management and TanStack Query for optimized data fetching. Implements Radix UI components for accessible interactions and Recharts for pricing visualization.",
       problem:
-        "Users needed a centralized platform to discover and book unique experiences, but existing solutions lacked modern UX and performance optimization.",
+        "The tour agency managed bookings through scattered WhatsApp conversations and spreadsheets. No centralized system to track inquiries, showcase packages with pricing, or follow up with potential clients.",
       solution:
-        "Developed a fast, responsive web application with server-side rendering for quick initial loads, client-side interactivity for smooth user experience, and a clean, minimal design that focuses on content.",
-      techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        "Built a platform that centralizes all trip inquiries in a dashboard, displays packages with dynamic pricing, and sends real-time notifications for new bookings. Travelers browse destinations and submit custom requests that route directly to the agency's inbox.",
+      techStack: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "TanStack Query",
+        "Radix UI",
+      ],
     },
 
     // ========================================
@@ -57,62 +66,85 @@ export const projects = {
     {
       id: "dana-doors",
       name: "Dana Doors",
-      description: "E-commerce platform for premium door solutions.",
+      description:
+        "Bilingual showroom for premium doors and windows with optimized image delivery.",
       fullDescription:
-        "Dana Doors is an e-commerce platform specializing in premium door solutions. The platform offers a seamless shopping experience with detailed product catalogs, customization options, and secure checkout processes.",
+        "An online catalog for Dana Doors, a doors and windows manufacturer. Features bilingual Arabic/English support, product galleries with zoom, quote request forms, and SEO optimization for local search visibility.",
       image: "/assets/projects/dana-doors/dana-doors.jpg",
       websiteUrl: "https://www.danadoors.net/",
       repositoryUrl: null,
       architecture:
-        "E-commerce architecture with product catalog management, shopping cart functionality, and order processing. Uses Next.js for server-side rendering and API routes for backend operations.",
+        "Bilingual Next.js 16 application with internationalization support. Uses Cloudinary for optimized image delivery and Upstash Redis for rate limiting on contact forms. Implements Framer Motion for smooth transitions.",
       problem:
-        "The client needed a modern e-commerce solution that could handle complex product configurations, multiple variants, and provide an excellent user experience.",
+        "The manufacturer had no online presence. Customers couldn't browse products, see pricing ranges, or request quotes without calling. SEO was non-existent for local searches.",
       solution:
-        "Created a scalable e-commerce platform with dynamic product pages, real-time inventory management, and an intuitive checkout flow. Implemented responsive design for mobile and desktop users.",
-      techStack: ["Next.js", "React", "TypeScript", "Supabase"],
+        "Created a fast-loading showroom with product categories, high-quality images optimized via Cloudinary, and quote request forms that go straight to sales. Added bilingual SEO to rank for both Arabic and English searches in Egypt.",
+      techStack: [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Cloudinary",
+        "Upstash Redis",
+        "Framer Motion",
+      ],
     },
-
     // ========================================
     // Rootly
     // ========================================
     {
       id: "rootly",
-      name: "Rootly",
-      description: "Innovative platform for plant enthusiasts.",
+      name: "Rootly Notes",
+      description:
+        "Study tracker with progress charts, streak tracking, and multi-tenant authentication.",
       fullDescription:
-        "Rootly is an innovative platform designed for plant enthusiasts to track, manage, and learn about their plant collections. Features include plant care reminders, growth tracking, and a community-driven knowledge base.",
+        "A learning platform for students to track study sessions, visualize progress with charts, and maintain study streaks. Features secure authentication, offline-capable notes, and real-time progress sync across devices.",
       image: "/assets/projects/rootly-notes/rootly-notes.jpg",
       websiteUrl: "https://rootly-notes-app.vercel.app/",
       repositoryUrl: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
       architecture:
-        "Full-stack application with user authentication, data persistence, and real-time updates. Uses Next.js for the frontend and API routes for backend logic, with a database for storing user data and plant information.",
+        "Full-stack application with Supabase Auth for multi-tenant user management. Uses Recharts for progress visualization and React Hook Form with Zod for validated data entry. Implements real-time subscriptions for live updates.",
       problem:
-        "Plant enthusiasts lacked a comprehensive tool to track their plant collections, receive care reminders, and access reliable plant care information.",
+        "Students had no way to track their study habits, see progress over time, or stay motivated with streak tracking. Existing tools were either too complex or lacked visual feedback.",
       solution:
-        "Built a user-friendly platform with personalized plant tracking, automated care reminders, and a community-driven knowledge base. Implemented intuitive data visualization for plant growth tracking.",
-      techStack: ["Next.js", "React", "TypeScript", "Supabase"],
+        "Built an intuitive study tracker where students log sessions, see understanding metrics in charts, and track daily streaks. Progress syncs in real-time across devices, and notes are accessible offline for studying anywhere.",
+      techStack: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "Recharts",
+        "React Hook Form",
+      ],
     },
-
     // ========================================
     // Marky
     // ========================================
     {
       id: "marky",
-      name: "Marky",
-      description: "Creative design and development studio portfolio.",
+      name: "Marky Editor",
+      description:
+        "AI-powered mindmap editor that transforms markdown into interactive visual diagrams.",
       fullDescription:
-        "Marky is a creative design and development studio portfolio showcasing innovative projects, design processes, and team expertise. The platform serves as both a portfolio and a case study repository.",
+        "A markdown-based mindmap editor with live preview and AI assistance. Users write in markdown, see it rendered as an interactive mindmap in real-time, and can export or share their visual diagrams.",
       image: "/assets/projects/marky-editor/marky-editor.jpg",
       websiteUrl: "https://marky-editor.vercel.app/",
       repositoryUrl: "https://github.com/mo0hamed-shoaib/marky-editor",
       architecture:
-        "Portfolio website with dynamic content management, project showcases, and interactive case studies. Uses Next.js for optimal performance and SEO, with a focus on visual storytelling and smooth animations.",
+        "Next.js 15 application with Markmap library for mindmap rendering. Uses split-panel layout for simultaneous markdown editing and visual preview. Implements error boundaries for graceful handling of invalid markdown.",
       problem:
-        "The studio needed a portfolio that could effectively showcase their work, tell compelling stories about their projects, and demonstrate their design and development capabilities.",
+        "Creating mindmaps required dedicated tools with steep learning curves. Developers wanted to use markdown (which they already know) but needed the visual clarity of mindmaps for presentations.",
       solution:
-        "Developed a visually striking portfolio with smooth animations, detailed case studies, and an intuitive navigation system. Implemented a content management approach that makes it easy to add new projects and update content.",
-      techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+        "Created an editor where users write markdown on the left and see a live mindmap on the right. Supports collapsing nodes, zooming, and exporting. The markdown-first approach means content is portable and version-controllable.",
+      techStack: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Markmap",
+        "React Resizable Panels",
+      ],
     },
   ],
 } as const;
-
