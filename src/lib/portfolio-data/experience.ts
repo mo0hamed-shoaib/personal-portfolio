@@ -32,12 +32,12 @@ export const experience = [
     company: "TELUS International",
     period: "Sep 2019 - May 2024",
     responsibilities: [
-      "Evaluated the helpfulness of search results on Google Search Engine",
-      "Corrected Google Maps businesses information and moderated their content",
+      "Evaluated search result quality and relevance for Google Search Engine across thousands of queries",
+      "Audited and corrected Google Maps business listings to ensure accurate information and appropriate content",
     ],
     learnings: [
-      "Learned how to search the internet and find key Information quickly",
-      "Grown an attention for detail and eagerness to learn",
+      "Learned how to research and verify information quickly across multiple sources",
+      "Developed strong attention to detail and a habit of double-checking my work",
     ],
   },
 ] as const;
@@ -75,12 +75,12 @@ export const internships = [
     company: "Information Technology Institute (ITI)",
     period: "Feb 2025 - Jul 2025",
     responsibilities: [
-      "Developed and deployed 4 full-stack web applications during ITI training, including social, e-commerce, and dashboard platforms",
-      "Led a 5-member team in building a MERN-based project, delivering it within a 3-week sprint under Agile methodology",
+      "Built 4 full-stack web applications during training: social platform, e-commerce site, admin dashboard, and API service",
+      "Led a 5-person team to deliver a complete MERN project in 3 weeks using Agile methodology",
     ],
     learnings: [
-      "Learned how to communicate with students and supervisors",
-      "Learned how to have a mindset to achieve success",
+      "Learned how to communicate technical ideas clearly with teammates and supervisors",
+      "Developed a practical mindset focused on shipping working features instead of perfect code",
     ],
   },
 ] as const;
