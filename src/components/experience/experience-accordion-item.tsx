@@ -45,9 +45,9 @@ export function ExperienceAccordionItem({
         >
           <div className="flex-1">
             <h4 className="text-base font-semibold">{item.title}</h4>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-1 text-sm text-muted-foreground">
               <span>{item.company}</span>
-              <span>•</span>
+              <span className="hidden md:inline">•</span>
               <span>{item.period}</span>
             </div>
           </div>

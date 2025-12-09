@@ -59,9 +59,9 @@ export function Certifications() {
                   >
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">{cert.name}</h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-1 text-sm text-muted-foreground">
                         <span>{cert.issuer}</span>
-                        <span>•</span>
+                        <span className="hidden md:inline">•</span>
                         <span>{cert.date}</span>
                       </div>
                     </div>
