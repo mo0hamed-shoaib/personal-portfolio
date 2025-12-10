@@ -5,7 +5,7 @@ export function useActiveSection(sectionIds: string[]) {
 
   useEffect(() => {
     // Create intersection observer options
-    const observerOptions: IntersectionObserverOptions = {
+    const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: "-50% 0px -50% 0px", // Trigger when section is in the middle of viewport
       threshold: 0,
