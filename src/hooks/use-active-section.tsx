@@ -2,8 +2,26 @@ import { useEffect, useState } from "react";
 
 export function useActiveSection(sectionIds: string[]) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
+    // Track if user has scrolled more than 100px
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 100;
+      setHasScrolled(scrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Only start tracking sections after user has scrolled
+    if (!hasScrolled) {
+      setActiveSection(null);
+      return;
+    }
+
     // Create intersection observer options
     const observerOptions: IntersectionObserverInit = {
       root: null,
@@ -38,7 +56,7 @@ export function useActiveSection(sectionIds: string[]) {
         }
       });
     };
-  }, [sectionIds]);
+  }, [sectionIds, hasScrolled]);
 
   return activeSection;
 }
