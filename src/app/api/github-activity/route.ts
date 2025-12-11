@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   }
 
   const cachedData = cache.get<GitHubActivityApiResponse>(
-    GITHUB_ACTIVITY_CACHE_KEY,
+    GITHUB_ACTIVITY_CACHE_KEY
   );
   if (cachedData && !refreshCache) {
     return NextResponse.json({ ...cachedData, source: "cache" });
@@ -28,10 +28,10 @@ export async function GET(request: Request) {
 
   try {
     const today = new Date();
-    const eightMonthsAgo = new Date(today);
-    eightMonthsAgo.setMonth(today.getMonth() - 8);
+    const oneYearAgo = new Date(today);
+    oneYearAgo.setFullYear(today.getFullYear() - 1);
 
-    const fromDate = eightMonthsAgo.toISOString().split("T")[0]; // YYYY-MM-DD
+    const fromDate = oneYearAgo.toISOString().split("T")[0]; // YYYY-MM-DD
     const toDate = today.toISOString().split("T")[0]; // YYYY-MM-DD
 
     const { contributions, totalContributions } =
@@ -52,8 +52,7 @@ export async function GET(request: Request) {
         error: "Failed to fetch GitHub activity",
         details: (error as Error).message,
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }
-

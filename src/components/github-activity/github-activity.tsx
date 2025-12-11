@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Tooltip,
+  TooltipPanel,
+  TooltipTrigger,
+} from "@/components/animate-ui/components/base/tooltip";
 
 interface ContributionDay {
   date: string;
@@ -30,18 +35,36 @@ function getLevelColor(level: number): string {
   }
 }
 
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+
 function ContributionGraph({
   totalContributions,
   contributions,
 }: GitHubActivityProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
   if (!contributions || contributions.length === 0) {
     return null;
   }
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    // Scroll to the newest contributions on mount/update
+    requestAnimationFrame(() => {
+      el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+    });
+  }, [contributions]);
+
   return (
     <div>
       <p className="mb-4 text-center text-sm text-muted-foreground">
-        {totalContributions.toLocaleString()} contributions in the last 8 months
+        {totalContributions.toLocaleString()} contributions in the past year
       </p>
       <div className="relative border-y border-border bg-card">
         <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
@@ -56,18 +79,33 @@ function ContributionGraph({
         <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
           +
         </span>
-        <div className="grid grid-flow-col grid-rows-7 gap-1 p-6 overflow-x-auto">
-          {contributions.map((day) => (
-            <div
-              key={day.date}
-              className={`h-3 w-3 ${getLevelColor(
-                day.level
-              )} transition-colors`}
-              title={`${day.count} contribution${
-                day.count !== 1 ? "s" : ""
-              } on ${day.date}`}
-            />
-          ))}
+        <div
+          ref={containerRef}
+          className="grid grid-flow-col grid-rows-7 gap-1 py-6 overflow-x-auto scrollbar-hidden"
+        >
+          {contributions.map((day) => {
+            const contributionLabel = `${day.count} contribution${
+              day.count !== 1 ? "s" : ""
+            } on ${dateFormatter.format(new Date(day.date))}`;
+
+            return (
+              <Tooltip key={day.date} delay={0}>
+                <TooltipTrigger
+                  render={
+                    <div
+                      className={`h-3 w-3 ${getLevelColor(
+                        day.level
+                      )} transition-colors`}
+                      aria-label={contributionLabel}
+                    />
+                  }
+                />
+                <TooltipPanel className="border border-border bg-popover px-2.5 py-1 text-xs text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+                  {contributionLabel}
+                </TooltipPanel>
+              </Tooltip>
+            );
+          })}
         </div>
       </div>
     </div>
@@ -81,23 +119,6 @@ export function GitHubActivity() {
   } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [daysToShow, setDaysToShow] = useState(110); // Default to mobile
-
-  useEffect(() => {
-    // Set initial days to show based on window size
-    if (typeof window !== "undefined") {
-      setDaysToShow(window.innerWidth < 768 ? 110 : Infinity);
-    }
-
-    // Handle window resize
-    const handleResize = () => {
-      setDaysToShow(window.innerWidth < 768 ? 110 : Infinity);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -158,11 +179,7 @@ export function GitHubActivity() {
         </div>
         <ContributionGraph
           totalContributions={data.totalContributions}
-          contributions={
-            daysToShow === Infinity
-              ? data.contributions
-              : data.contributions.slice(-daysToShow)
-          }
+          contributions={data.contributions}
         />
       </div>
     </section>
