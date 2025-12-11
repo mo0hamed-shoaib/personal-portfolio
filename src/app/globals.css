@@ -223,6 +223,14 @@ h6 {
   scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 /* Custom Text Selection */
 ::selection {
   background-color: var(--selection);
