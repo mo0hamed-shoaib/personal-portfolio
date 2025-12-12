@@ -24,7 +24,7 @@ export const personal = {
   },
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/mohamed-g-shoaib/",
-    github: "https://github.com/mo0hamed-shoaib",
+    github: "https://github.com/mohamed-g-shoaib",
     x: "https://x.com/mo0hamed_gamal",
   },
   cv: "https://drive.google.com/file/d/1CJhC5Ku8wie4-CDmyyIMqc4qGEo2Pg6j/view",

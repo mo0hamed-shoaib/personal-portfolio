@@ -101,7 +101,7 @@ export const projects = {
         "A learning platform for students to track study sessions, visualize progress with charts, and maintain study streaks. Features secure authentication, offline-capable notes, and real-time progress sync across devices.",
       image: "/assets/projects/rootly-notes/rootly-notes.jpg",
       websiteUrl: "https://rootly-notes-app.vercel.app/",
-      repositoryUrl: "https://github.com/mo0hamed-shoaib/rootly-notes-app",
+      repositoryUrl: "https://github.com/mohamed-g-shoaib/rootly-notes-app",
       architecture:
         "Full-stack application with Supabase Auth for multi-tenant user management. Uses Recharts for progress visualization and React Hook Form with Zod for validated data entry. Implements real-time subscriptions for live updates.",
       problem:
@@ -130,7 +130,7 @@ export const projects = {
         "A markdown-based mindmap editor with live preview and AI assistance. Users write in markdown, see it rendered as an interactive mindmap in real-time, and can export or share their visual diagrams.",
       image: "/assets/projects/marky-editor/marky-editor.jpg",
       websiteUrl: "https://marky-editor.vercel.app/",
-      repositoryUrl: "https://github.com/mo0hamed-shoaib/marky-editor",
+      repositoryUrl: "https://github.com/mohamed-g-shoaib/marky-editor",
       architecture:
         "Next.js 15 application with Markmap library for mindmap rendering. Uses split-panel layout for simultaneous markdown editing and visual preview. Implements error boundaries for graceful handling of invalid markdown.",
       problem:

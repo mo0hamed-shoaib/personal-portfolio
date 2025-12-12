@@ -21,12 +21,12 @@ export interface ContributionDay {
   level: number; // 0-4
 }
 
-const GITHUB_USERNAME = "mo0hamed-shoaib";
+const GITHUB_USERNAME = "mohamed-g-shoaib";
 const GITHUB_API_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
 
 export async function fetchGitHubContributions(
   fromDate: string,
-  toDate: string,
+  toDate: string
 ): Promise<{ contributions: ContributionDay[]; totalContributions: number }> {
   if (!GITHUB_API_TOKEN) {
     throw new Error("Missing GITHUB_ACCESS_TOKEN environment variable.");
@@ -77,7 +77,9 @@ export async function fetchGitHubContributions(
   };
 
   if (result.errors) {
-    throw new Error(`GraphQL errors: ${result.errors.map((e) => e.message).join(", ")}`);
+    throw new Error(
+      `GraphQL errors: ${result.errors.map((e) => e.message).join(", ")}`
+    );
   }
 
   if (!result.data?.user?.contributionsCollection) {
@@ -86,7 +88,7 @@ export async function fetchGitHubContributions(
 
   const contributionDays =
     result.data.user.contributionsCollection.contributionCalendar.weeks.flatMap(
-      (week) => week.contributionDays,
+      (week) => week.contributionDays
     );
 
   const mapContributionLevel = (level: string): number => {
@@ -115,7 +117,7 @@ export async function fetchGitHubContributions(
   return {
     contributions,
     totalContributions:
-      result.data.user.contributionsCollection.contributionCalendar.totalContributions,
+      result.data.user.contributionsCollection.contributionCalendar
+        .totalContributions,
   };
 }
-
