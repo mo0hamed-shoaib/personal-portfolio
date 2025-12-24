@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, startTransition } from "react";
 import { useTheme } from "next-themes";
 import { portfolioData } from "@/lib/portfolio-data";
+import Mg8BitLogo from "@/components/logo/mg-8bit-logo";
 import {
   Tooltip,
   TooltipTrigger,
@@ -45,21 +45,12 @@ export function Footer() {
                 href="/"
                 className="flex items-center md:order-first order-first"
               >
-                {mounted && resolvedTheme === "dark" ? (
-                  <Image
-                    src="/assets/logos/mg-logo-white.svg"
-                    alt={`${personal.name} logo`}
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
-                  />
-                ) : (
-                  <Image
-                    src="/assets/logos/mg-logo-black.svg"
-                    alt={`${personal.name} logo`}
-                    width={24}
-                    height={24}
-                    className="h-6 w-6"
+                {mounted && (
+                  <Mg8BitLogo
+                    className={`h-8 w-8 transition-[filter] duration-300 ${
+                      resolvedTheme === "dark" ? "invert" : ""
+                    }`}
+                    aria-label={`${personal.name} logo`}
                   />
                 )}
               </Link>
