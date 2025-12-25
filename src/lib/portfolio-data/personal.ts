@@ -18,10 +18,6 @@ export const personal = {
   jobTitle: "Frontend Developer",
   bio: "Passionate frontend developer building modern web experiences with React and Next.js.",
   avatar: "/assets/avatars/portfolio-pfp.jpg",
-  availability: {
-    status: "Open to work",
-    label: "Available for new opportunities",
-  },
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/mohamed-g-shoaib/",
     github: "https://github.com/mohamed-g-shoaib",

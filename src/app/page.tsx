@@ -22,13 +22,7 @@ const Certifications = dynamic(() =>
     default: mod.Certifications,
   }))
 );
-const AvailabilityStatus = dynamic(() =>
-  import("@/components/availability-status/availability-status").then(
-    (mod) => ({
-      default: mod.AvailabilityStatus,
-    })
-  )
-);
+
 const GitHubActivity = dynamic(() =>
   import("@/components/github-activity/github-activity").then((mod) => ({
     default: mod.GitHubActivity,
@@ -68,9 +62,7 @@ export default function Home() {
               <SectionWrapper delay={0.1}>
                 <Certifications />
               </SectionWrapper>
-              <SectionWrapper delay={0.1}>
-                <AvailabilityStatus />
-              </SectionWrapper>
+
               <SectionWrapper delay={0.1}>
                 <GitHubActivity />
               </SectionWrapper>
