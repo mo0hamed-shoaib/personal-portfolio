@@ -3,15 +3,8 @@ import {
   AccordionTrigger,
   AccordionPanel,
 } from "@/components/animate-ui/components/base/accordion";
-
-interface ExperienceItem {
-  id: string;
-  title: string;
-  company: string;
-  period: string;
-  responsibilities?: readonly string[];
-  learnings?: readonly string[];
-}
+import { Badge } from "@/components/ui/badge";
+import type { ExperienceItem } from "@/lib/portfolio-data";
 
 interface ExperienceAccordionItemProps {
   item: ExperienceItem;
@@ -44,6 +37,12 @@ export function ExperienceAccordionItem({
           className="group flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left font-medium transition-colors hover:bg-muted hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&[data-panel-open]>svg]:rotate-45 [&[data-panel-open]>svg]:scale-110"
         >
           <div className="flex-1">
+            <Badge
+              variant="outline"
+              className="h-auto text-[10px] px-1.5 py-0 mb-1"
+            >
+              {item.type === "internship" ? "Internship" : "Work"}
+            </Badge>
             <h4 className="text-base font-semibold">{item.title}</h4>
             <div className="flex flex-col md:flex-row md:items-center md:gap-2 gap-1 text-sm text-muted-foreground">
               <span>{item.company}</span>
@@ -72,6 +71,18 @@ export function ExperienceAccordionItem({
                   <li key={learning}>{learning}</li>
                 ))}
               </ul>
+            </div>
+          ) : null}
+          {item.certificateUrl ? (
+            <div>
+              <a
+                href={item.certificateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline"
+              >
+                View Certificate →
+              </a>
             </div>
           ) : null}
         </AccordionPanel>

@@ -7,7 +7,7 @@ import { ExperienceAccordionItem } from "./experience-accordion-item";
 import { ExperienceFallback } from "./experience-fallback";
 
 export function Experience() {
-  const { experience, internships } = portfolioData;
+  const { experience } = portfolioData;
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -28,41 +28,19 @@ export function Experience() {
           </h2>
         </div>
 
-        <div className="space-y-8">
-          {experience.length > 0 && (
-            <div>
-              <h3 className="mb-4 text-center text-xl font-semibold">
-                Work Experience
-              </h3>
-              {mounted ? (
-                <Accordion multiple className="space-y-4">
-                  {experience.map((exp) => (
-                    <ExperienceAccordionItem key={exp.id} item={exp} />
-                  ))}
-                </Accordion>
-              ) : (
-                <ExperienceFallback items={experience} />
-              )}
-            </div>
-          )}
-
-          {internships.length > 0 && (
-            <div>
-              <h3 className="mb-4 text-center text-xl font-semibold">
-                Internships
-              </h3>
-              {mounted ? (
-                <Accordion multiple className="space-y-4">
-                  {internships.map((intern) => (
-                    <ExperienceAccordionItem key={intern.id} item={intern} />
-                  ))}
-                </Accordion>
-              ) : (
-                <ExperienceFallback items={internships} />
-              )}
-            </div>
-          )}
-        </div>
+        {experience.length > 0 && (
+          <div>
+            {mounted ? (
+              <Accordion multiple className="space-y-4">
+                {experience.map((exp) => (
+                  <ExperienceAccordionItem key={exp.id} item={exp} />
+                ))}
+              </Accordion>
+            ) : (
+              <ExperienceFallback items={experience} />
+            )}
+          </div>
+        )}
       </div>
     </section>
   );
