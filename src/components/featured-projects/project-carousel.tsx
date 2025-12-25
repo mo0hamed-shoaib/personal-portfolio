@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState, startTransition } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { Button } from "@base-ui-components/react/button";
+import { Button } from "@base-ui/react/button";
 import { ProjectDetailsDialog } from "./project-details-dialog";
 import { ProjectCarouselCard } from "./project-carousel-card";
 import { ProjectCarouselContainer } from "./project-carousel-container";

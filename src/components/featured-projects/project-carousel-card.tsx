@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Separator } from "@base-ui-components/react/separator";
+import { Separator } from "@base-ui/react/separator";
 
 interface Project {
   id: string;

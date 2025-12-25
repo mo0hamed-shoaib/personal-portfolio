@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/animate-ui/components/base/dialog";
-import { Separator } from "@base-ui-components/react/separator";
+import { Separator } from "@base-ui/react/separator";
 import Link from "next/link";
 import { useDialogScrollReset } from "@/hooks/use-dialog-scroll-reset";
 
