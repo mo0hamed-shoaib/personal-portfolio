@@ -47,7 +47,6 @@ export function ProjectDetailsDialog({
       <DialogPopup
         showCloseButton={true}
         className="w-full max-w-3xl max-h-[90vh] overflow-y-auto"
-        from="top"
         initialFocus={titleRef}
       >
         <DialogHeader className="relative mb-0 flex flex-row items-center justify-between gap-0 pr-8 text-left">
