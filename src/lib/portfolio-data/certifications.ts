@@ -40,9 +40,9 @@ export const education: readonly EducationItem[] = [
     id: "edu-1",
     name: "Bachelor's Degree in Computer Science",
     issuer: "Misr University for Science and Technology",
-    date: "Jun 2021",
+    date: "Oct 2017 – Jun 2021",
     description:
-      "Bachelor's degree in Computer Science from Misr University for Science and Technology (Oct 2017 – Jun 2021).",
+      "Bachelor's degree in Computer Science from Misr University for Science and Technology.",
     learnings: [
       "Computer Science fundamentals, Operating Systems, and Computer Networks",
       "Software Engineering and system design",
