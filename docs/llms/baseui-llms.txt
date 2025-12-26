@@ -1,24 +1,24 @@
 # Base UI
 
-This is the documentation for the `@base-ui-components/react` package.
+This is the documentation for the `@base-ui/react` package.
 It contains a collection of components and utilities for building user interfaces in React.
 The library is designed to be composable and styling agnostic.
 
 ## Overview
 
-- [Quick start](https://base-ui.com/react/overview/quick-start.md): A quick guide to getting started with Base UI.
-- [Accessibility](https://base-ui.com/react/overview/accessibility.md): Learn how to make the most of Base UI's accessibility features and guidelines.
-- [Releases](https://base-ui.com/react/overview/releases.md): Changelogs for each Base UI release.
+- [Quick start](https://base-ui.com/react/overview/quick-start.md): A quick guide to getting started with Base UI.
+- [Accessibility](https://base-ui.com/react/overview/accessibility.md): Learn how to make the most of Base UI's accessibility features and guidelines.
+- [Releases](https://base-ui.com/react/overview/releases.md): Changelogs for each Base UI release.
 - [About Base UI](https://base-ui.com/react/overview/about.md): An overview of Base UI, providing information on its history, team, and goals.
 
 ## Handbook
 
-- [Styling](https://base-ui.com/react/handbook/styling.md): Learn how to style Base UI components with your preferred styling engine.
-- [Animation](https://base-ui.com/react/handbook/animation.md): A guide to animating Base UI components.
-- [Composition](https://base-ui.com/react/handbook/composition.md): A guide to composing Base UI components with your own React components.
-- [Customization](https://base-ui.com/react/handbook/customization.md): A guide to customizing the behavior of Base UI components.
-- [Forms](https://base-ui.com/react/handbook/forms.md): A guide to building forms with Base UI components.
-- [TypeScript](https://base-ui.com/react/handbook/typescript.md): A guide to using TypeScript with Base UI.
+- [Styling](https://base-ui.com/react/handbook/styling.md): Learn how to style Base UI components with your preferred styling engine.
+- [Animation](https://base-ui.com/react/handbook/animation.md): A guide to animating Base UI components.
+- [Composition](https://base-ui.com/react/handbook/composition.md): A guide to composing Base UI components with your own React components.
+- [Customization](https://base-ui.com/react/handbook/customization.md): A guide to customizing the behavior of Base UI components.
+- [Forms](https://base-ui.com/react/handbook/forms.md): A guide to building forms with Base UI components.
+- [TypeScript](https://base-ui.com/react/handbook/typescript.md): A guide to using TypeScript with Base UI.
 
 ## Components
 
@@ -60,5 +60,5 @@ The library is designed to be composable and styling agnostic.
 
 ## Utilities
 
-- [Direction Provider](https://base-ui.com/react/utils/direction-provider.md): A direction provider component that enables RTL behavior for Base UI components.
+- [Direction Provider](https://base-ui.com/react/utils/direction-provider.md): A direction provider component that enables RTL behavior for Base UI components.
 - [useRender](https://base-ui.com/react/utils/use-render.md): Hook for enabling a render prop in custom components.

@@ -2,19 +2,9 @@
 
 - Use **/docs** as the canonical source of truth.
 
-  - Next.js → `/docs/next-js`
+  - Base UI → `/docs/llms/baseui-llms.txt` (fetch the url content)
 
-  - UI & animation → `/docs/ui-and-animation`
-
-  - Base UI → `/docs/ui-and-animation/base-ui-and-basecn/base-ui-llms.txt` (or individual files in that folder)
-
-  - Basecn → `/docs/ui-and-animation/base-ui-and-basecn/basecn-llms.txt` (only use this if base-ui has no code for the component you want to create)
-
-  - Animations → `/docs/ui-and-animation/animate-ui`
-
-  - Theme → `/docs/preferred-theme.css`
-
-  - Create a consistent grid system
+  - Shadcn/ui → `/docs/llms/shadcnui-llms.txt` (fetch the url content)
 
 - Disallow any, permit unknown only when needed, then refine.
 
