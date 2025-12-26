@@ -63,9 +63,15 @@ export function ProjectCarouselCard({
             {project.type === "personal" ? "Personal" : "Client Work"}
           </Badge>
           <h3 className="mb-2 text-lg font-semibold">{project.name}</h3>
-          <p className="mb-4 min-h-[2.5rem] text-sm text-muted-foreground">
+          <p className="mb-2 min-h-10 text-sm text-muted-foreground">
             {project.description}
           </p>
+          <button
+            onClick={() => onReadMore(project)}
+            className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring mb-4 w-fit"
+          >
+            Read More →
+          </button>
 
           <Separator orientation="horizontal" className="mb-4 h-px bg-border" />
 
@@ -76,24 +82,18 @@ export function ProjectCarouselCard({
               rel="noopener noreferrer"
               className="cursor-pointer text-sm font-bold text-accent-orange transition-colors hover:text-accent-orange/80 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Website
+              Visit Website
             </Link>
             {project.repositoryUrl && (
               <Link
                 href={project.repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer text-sm font-bold text-accent-orange transition-colors hover:text-accent-orange/80 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="cursor-pointer text-sm font-bold text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Repository
               </Link>
             )}
-            <button
-              onClick={() => onReadMore(project)}
-              className="cursor-pointer text-sm font-bold text-muted-foreground transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              Details
-            </button>
           </div>
         </div>
       </div>
