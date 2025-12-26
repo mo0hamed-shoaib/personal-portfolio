@@ -45,21 +45,9 @@ export function TechStack() {
                 key={tech.name}
                 className={`relative flex items-start gap-4 ${borderClasses} bg-card p-6`}
               >
-                <span className="pointer-events-none absolute z-10 left-0 top-0 -translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                  +
-                </span>
-                <span className="pointer-events-none absolute z-10 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                  +
-                </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 left-0 -translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                  +
-                </span>
-                <span className="pointer-events-none absolute z-10 bottom-0 right-0 translate-x-[calc(50%+0.5px)] translate-y-[calc(50%-0.5px)] text-[10px] font-semibold font-mono leading-none text-accent-orange">
-                  +
-                </span>
                 {iconMarkup && (
                   <div
-                    className="h-12 w-12 flex items-center justify-center flex-shrink-0 text-foreground"
+                    className="h-12 w-12 flex items-center justify-center shrink-0 text-foreground"
                     dangerouslySetInnerHTML={{ __html: iconMarkup }}
                   />
                 )}
