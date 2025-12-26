@@ -4,9 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "@base-ui/react/separator";
+import { Badge } from "@/components/ui/badge";
 
 interface Project {
   id: string;
+  type: "client" | "personal";
   name: string;
   description: string;
   fullDescription?: string;
@@ -54,6 +56,12 @@ export function ProjectCarouselCard({
         </div>
 
         <div className="flex flex-1 flex-col p-6">
+          <Badge
+            variant="outline"
+            className="h-auto text-[10px] px-1.5 py-0 mb-2 w-fit"
+          >
+            {project.type === "personal" ? "Personal" : "Client Work"}
+          </Badge>
           <h3 className="mb-2 text-lg font-semibold">{project.name}</h3>
           <p className="mb-4 min-h-[2.5rem] text-sm text-muted-foreground">
             {project.description}

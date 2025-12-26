@@ -35,6 +35,7 @@ export const projects = {
     // ========================================
     {
       id: "devloop-agency",
+      type: "client",
       name: "Devloop Agency",
       description:
         "Agency site with SEO, reusable components, and responsive design.",
@@ -62,6 +63,7 @@ export const projects = {
     // ========================================
     {
       id: "mo-experiences",
+      type: "client",
       name: "Mo's Experiences",
       description:
         "Egyptian travel platform connecting tourists with authentic desert adventures and Nile experiences.",
@@ -92,6 +94,7 @@ export const projects = {
     // ========================================
     {
       id: "dana-doors",
+      type: "client",
       name: "Dana Doors",
       description:
         "Bilingual showroom for premium doors and windows with optimized image delivery.",
@@ -121,6 +124,7 @@ export const projects = {
     // ========================================
     {
       id: "rootly",
+      type: "personal",
       name: "Rootly Notes",
       description:
         "Study tracker with progress charts, streak tracking, and multi-tenant authentication.",
@@ -150,6 +154,7 @@ export const projects = {
     // ========================================
     {
       id: "marky",
+      type: "personal",
       name: "Marky Editor",
       description:
         "AI-powered mindmap editor that transforms markdown into interactive visual diagrams.",
