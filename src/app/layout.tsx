@@ -3,7 +3,6 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { MotionConfig } from "motion/react";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/toaster/toaster";
 import { ScrollRestoration } from "@/components/scroll-restoration";
 import { StructuredData } from "@/components/structured-data/structured-data";
@@ -74,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         style={GeistMono.style}
@@ -82,10 +81,8 @@ export default function RootLayout({
         <StructuredData />
         <MotionConfig reducedMotion="user">
           <ScrollRestoration />
-          <ThemeProvider>
-            {children}
-            <Toaster />
-          </ThemeProvider>
+          {children}
+          <Toaster />
         </MotionConfig>
       </body>
     </html>
