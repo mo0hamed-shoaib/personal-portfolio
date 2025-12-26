@@ -129,7 +129,7 @@ export function Introduction() {
               rel="noopener noreferrer"
               className="hidden text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring md:inline-block"
             >
-              View CV
+              View My CV
             </Link>
 
             {/* Social links + CV - shown below text on mobile only */}
@@ -223,7 +223,7 @@ export function Introduction() {
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                View CV
+                View My CV
               </Link>
             </div>
           </div>
