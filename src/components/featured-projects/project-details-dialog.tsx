@@ -123,7 +123,7 @@ export function ProjectDetailsDialog({
               rel="noopener noreferrer"
               className="cursor-pointer text-sm font-bold text-accent-orange transition-colors hover:text-accent-orange/80 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              Website
+              Visit Website
             </Link>
             {project.repositoryUrl && (
               <Link
