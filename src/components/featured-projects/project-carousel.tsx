@@ -10,6 +10,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "./project-carousel-icons";
 
 interface Project {
   id: string;
+  type: "client" | "personal";
   name: string;
   description: string;
   fullDescription?: string;
