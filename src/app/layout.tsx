@@ -77,6 +77,7 @@ export default function RootLayout({
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         style={GeistMono.style}
+        suppressHydrationWarning
       >
         <StructuredData />
         <MotionConfig reducedMotion="user">
