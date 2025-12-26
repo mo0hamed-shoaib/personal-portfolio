@@ -1,0 +1,135 @@
+---
+title: "The Art of Component Design in React"
+date: "2025-12-10"
+description: "Principles I follow when designing React components that are reusable, maintainable, and a joy to work with."
+tags: ["react", "components", "design-patterns"]
+---
+
+Building components is easy. Building _good_ components is an art. Here are the principles I've learned from building production React applications.
+
+## 1. Single Responsibility
+
+Each component should do one thing well:
+
+```tsx
+// ❌ Too much responsibility
+function UserCard({ user }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState(user);
+
+  // Handles display, editing, and form submission
+  // This is a mess
+}
+
+// ✅ Separated concerns
+function UserCard({ user }) {
+  return (
+    <Card>
+      <UserAvatar user={user} />
+      <UserInfo user={user} />
+      <UserActions userId={user.id} />
+    </Card>
+  );
+}
+```
+
+## 2. Composition Over Configuration
+
+Don't pass 20 props. Use composition:
+
+```tsx
+// ❌ Props explosion
+<Button
+  variant="primary"
+  size="lg"
+  icon="arrow"
+  iconPosition="right"
+  loading={false}
+  disabled={false}
+  fullWidth={true}
+  rounded={true}
+/>
+
+// ✅ Composition
+<Button variant="primary" size="lg">
+  <span>Continue</span>
+  <ArrowIcon />
+</Button>
+```
+
+## 3. Sensible Defaults
+
+Make the common case easy:
+
+```tsx
+interface ButtonProps {
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  children: React.ReactNode;
+}
+
+function Button({
+  variant = "primary", // Most common
+  size = "md", // Most common
+  children,
+}: ButtonProps) {
+  // ...
+}
+
+// Now you can just do:
+<Button>Click me</Button>;
+```
+
+## 4. Controlled vs Uncontrolled
+
+Support both patterns when it makes sense:
+
+```tsx
+interface InputProps {
+  value?: string; // Controlled
+  defaultValue?: string; // Uncontrolled
+  onChange?: (value: string) => void;
+}
+
+function Input({ value, defaultValue, onChange }: InputProps) {
+  const [internalValue, setInternalValue] = useState(defaultValue ?? "");
+
+  const isControlled = value !== undefined;
+  const currentValue = isControlled ? value : internalValue;
+
+  // ...
+}
+```
+
+## 5. Forward Refs and Spread Props
+
+Don't block native functionality:
+
+```tsx
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant, size, className, children, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(buttonVariants({ variant, size }), className)}
+        {...props} // Allow all native button props
+      >
+        {children}
+      </button>
+    );
+  }
+);
+```
+
+## The Result
+
+When you follow these principles, you end up with components that:
+
+- Are **easy to understand** at a glance
+- Are **flexible** enough for most use cases
+- Can be **composed** into complex UIs
+- Require **minimal documentation**
+
+---
+
+What patterns do you follow? I'd love to hear your thoughts.

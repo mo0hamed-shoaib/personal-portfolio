@@ -1,0 +1,58 @@
+---
+title: "Building with Next.js 15: What's New and Why It Matters"
+date: "2025-12-20"
+description: "Exploring the latest features in Next.js 15 including the App Router improvements, Turbopack stabilization, and React 19 support."
+tags: ["nextjs", "react", "web-dev"]
+---
+
+Next.js 15 is here, and it brings some exciting changes that are worth exploring. Let me walk you through the highlights.
+
+## Turbopack is Stable
+
+The biggest news is that Turbopack is now stable for local development. This means:
+
+- **Faster builds** - Up to 96% faster local server startup
+- **Faster HMR** - Changes reflect almost instantly
+- **Better DX** - Less waiting, more coding
+
+```bash
+# It's now the default for dev
+npx next dev
+```
+
+## React 19 Support
+
+Next.js 15 is the first major framework to support React 19 out of the box:
+
+- **Actions** - Server and client actions are now first-class
+- **Use** - The new `use` hook for promises and contexts
+- **Server Components** - Further improvements and optimizations
+
+## Partial Prerendering
+
+One feature I'm particularly excited about is **Partial Prerendering (PPR)**:
+
+```tsx
+export const experimental_ppr = true;
+
+export default function Page() {
+  return (
+    <main>
+      <StaticHeader />
+      <Suspense fallback={<Loading />}>
+        <DynamicContent />
+      </Suspense>
+    </main>
+  );
+}
+```
+
+This allows you to have static shells with dynamic content, combining the best of both worlds.
+
+## Should You Upgrade?
+
+If you're starting a new project, absolutely use Next.js 15. For existing projects, test thoroughly—especially if you're using custom configurations.
+
+---
+
+What features are you most excited about? Let me know!
