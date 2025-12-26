@@ -31,6 +31,33 @@
 export const projects = {
   featured: [
     // ========================================
+    // Devloop
+    // ========================================
+    {
+      id: "devloop-agency",
+      name: "Devloop Agency",
+      description:
+        "Agency site with SEO, reusable components, and responsive design.",
+      fullDescription:
+        "Built the Devloop agency website with reusable components, responsive layout, and SEO-friendly pages for ongoing content updates. Features project showcases, testimonials, and bilingual support.",
+      image: "/assets/projects/devloop/devloop.jpg",
+      websiteUrl: "https://devloop.software",
+      repositoryUrl: null,
+      architecture:
+        "Next.js App Router with Tailwind CSS for styling, TypeScript for type safety, and Framer Motion for smooth animations. Optimized for RTL/SEO and performance.",
+      problem:
+        "Needed a professional showcase site to highlight services, case studies, and attract global clients.",
+      solution:
+        "Created a fast, accessible agency site with dynamic project grids, contact forms, and content management for easy updates.",
+      techStack: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
+    },
+    // ========================================
     // Mo's Experiences
     // ========================================
     {
