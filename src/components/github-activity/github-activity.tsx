@@ -21,17 +21,17 @@ interface GitHubActivityProps {
 function getLevelColor(level: number): string {
   switch (level) {
     case 0:
-      return "bg-muted/60";
+      return "bg-muted";
     case 1:
-      return "bg-accent-orange/25";
-    case 2:
       return "bg-accent-orange/40";
-    case 3:
+    case 2:
       return "bg-accent-orange/60";
+    case 3:
+      return "bg-accent-orange/80";
     case 4:
       return "bg-accent-orange";
     default:
-      return "bg-muted/60";
+      return "bg-muted";
   }
 }
 
@@ -47,10 +47,6 @@ function ContributionGraph({
 }: GitHubActivityProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  if (!contributions || contributions.length === 0) {
-    return null;
-  }
-
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -60,6 +56,10 @@ function ContributionGraph({
       el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
     });
   }, [contributions]);
+
+  if (!contributions || contributions.length === 0) {
+    return null;
+  }
 
   return (
     <div>
