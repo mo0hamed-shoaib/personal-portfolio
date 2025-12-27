@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer/footer";
@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,14 +23,19 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export default function ContactPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errorMessage, setErrorMessage] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setErrors({});
-    setIsSubmitting(true);
+    setErrorMessage("");
+    setStatus("submitting");
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -52,7 +56,7 @@ export default function ContactPage() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      setIsSubmitting(false);
+      setStatus("idle");
       return;
     }
 
@@ -69,18 +73,20 @@ export default function ContactPage() {
         throw new Error(result.error || "Failed to send message");
       }
 
-      toast.success("Message sent successfully!", {
-        description: "I'll get back to you as soon as possible.",
-      });
-      e.currentTarget.reset();
+      setStatus("success");
+      formRef.current?.reset();
     } catch (error) {
-      toast.error("Failed to send message", {
-        description:
-          error instanceof Error ? error.message : "Please try again later.",
-      });
-    } finally {
-      setIsSubmitting(false);
+      setErrorMessage(
+        error instanceof Error ? error.message : "Please try again later."
+      );
+      setStatus("error");
     }
+  }
+
+  function handleSendAnother() {
+    setStatus("idle");
+    setErrors({});
+    setErrorMessage("");
   }
 
   return (
@@ -134,85 +140,150 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="border border-border bg-card p-6 md:p-8">
-              <h2 className="mb-6 text-xl font-semibold">Send a Message</h2>
-              <form onSubmit={handleSubmit}>
-                <FieldSet>
-                  <FieldGroup>
-                    <div className="grid gap-6 sm:grid-cols-2">
-                      <Field>
-                        <FieldLabel htmlFor="name">Name</FieldLabel>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          placeholder="Your name"
-                          aria-invalid={!!errors.name}
-                        />
-                        {errors.name && <FieldError>{errors.name}</FieldError>}
-                      </Field>
-
-                      <Field>
-                        <FieldLabel htmlFor="email">Email</FieldLabel>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          placeholder="you@example.com"
-                          aria-invalid={!!errors.email}
-                        />
-                        {errors.email && (
-                          <FieldError>{errors.email}</FieldError>
-                        )}
-                      </Field>
-                    </div>
-
-                    <Field>
-                      <FieldLabel htmlFor="subject">Subject</FieldLabel>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        placeholder="What's this about?"
-                        aria-invalid={!!errors.subject}
-                      />
-                      {errors.subject && (
-                        <FieldError>{errors.subject}</FieldError>
-                      )}
-                    </Field>
-
-                    <Field>
-                      <FieldLabel htmlFor="message">Message</FieldLabel>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell me about your project..."
-                        rows={5}
-                        aria-invalid={!!errors.message}
-                      />
-                      <FieldDescription>
-                        Share as much detail as you&apos;d like.
-                      </FieldDescription>
-                      {errors.message && (
-                        <FieldError>{errors.message}</FieldError>
-                      )}
-                    </Field>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="mt-2 w-full cursor-pointer bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              {status === "success" ? (
+                /* Success State */
+                <div className="py-8 text-center">
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center border border-green-600/30 bg-green-500/10 text-green-600">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-8 w-8"
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                    </button>
-                    <p className="mt-4 text-center text-sm text-muted-foreground">
-                      Your inquiry will be sent to{" "}
-                      <span className="text-foreground">
-                        mohamed.g.shoaib@gmail.com
-                      </span>
-                    </p>
-                  </FieldGroup>
-                </FieldSet>
-              </form>
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  </div>
+                  <h2 className="mb-2 text-2xl font-semibold">
+                    Message Sent Successfully!
+                  </h2>
+                  <p className="mb-6 text-muted-foreground">
+                    Thank you for reaching out. I&apos;ll get back to you as
+                    soon as possible. A confirmation email has been sent to your
+                    inbox.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleSendAnother}
+                    className="cursor-pointer border border-border bg-background px-6 py-3 font-semibold transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              ) : (
+                /* Form State */
+                <>
+                  <h2 className="mb-6 text-xl font-semibold">Send a Message</h2>
+
+                  {/* Error Banner */}
+                  {status === "error" && (
+                    <div className="mb-6 flex items-start gap-3 border border-red-600/30 bg-red-500/10 p-4 text-red-600">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-5 w-5 shrink-0 mt-0.5"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold">Failed to send message</p>
+                        <p className="text-sm opacity-90">{errorMessage}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  <form ref={formRef} onSubmit={handleSubmit}>
+                    <FieldSet>
+                      <FieldGroup>
+                        <div className="grid gap-6 sm:grid-cols-2">
+                          <Field>
+                            <FieldLabel htmlFor="name">Name</FieldLabel>
+                            <Input
+                              id="name"
+                              name="name"
+                              type="text"
+                              placeholder="Your name"
+                              aria-invalid={!!errors.name}
+                            />
+                            {errors.name && (
+                              <FieldError>{errors.name}</FieldError>
+                            )}
+                          </Field>
+
+                          <Field>
+                            <FieldLabel htmlFor="email">Email</FieldLabel>
+                            <Input
+                              id="email"
+                              name="email"
+                              type="email"
+                              placeholder="you@example.com"
+                              aria-invalid={!!errors.email}
+                            />
+                            {errors.email && (
+                              <FieldError>{errors.email}</FieldError>
+                            )}
+                          </Field>
+                        </div>
+
+                        <Field>
+                          <FieldLabel htmlFor="subject">Subject</FieldLabel>
+                          <Input
+                            id="subject"
+                            name="subject"
+                            type="text"
+                            placeholder="What's this about?"
+                            aria-invalid={!!errors.subject}
+                          />
+                          {errors.subject && (
+                            <FieldError>{errors.subject}</FieldError>
+                          )}
+                        </Field>
+
+                        <Field>
+                          <FieldLabel htmlFor="message">Message</FieldLabel>
+                          <Textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell me about your project..."
+                            rows={5}
+                            aria-invalid={!!errors.message}
+                          />
+                          <FieldDescription>
+                            Share as much detail as you&apos;d like.
+                          </FieldDescription>
+                          {errors.message && (
+                            <FieldError>{errors.message}</FieldError>
+                          )}
+                        </Field>
+
+                        <button
+                          type="submit"
+                          disabled={status === "submitting"}
+                          className="mt-2 w-full cursor-pointer bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                        >
+                          {status === "submitting"
+                            ? "Sending..."
+                            : "Send Message"}
+                        </button>
+                        <p className="mt-4 text-center text-sm text-muted-foreground">
+                          Your inquiry will be sent to{" "}
+                          <span className="text-foreground">
+                            mohamed.g.shoaib@gmail.com
+                          </span>
+                        </p>
+                      </FieldGroup>
+                    </FieldSet>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>
