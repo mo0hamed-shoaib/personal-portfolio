@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import ContactEmail from "@/emails/contact-email";
+import ContactConfirmationEmail from "@/emails/contact-confirmation-email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -24,7 +25,8 @@ export async function POST(request: Request) {
       );
     }
 
-    const { error } = await resend.emails.send({
+    // Send notification email to site owner
+    const { error: notificationError } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL!,
       to: process.env.CONTACT_EMAIL!,
       replyTo: email,
@@ -32,12 +34,25 @@ export async function POST(request: Request) {
       react: ContactEmail({ name, email, subject, message }),
     });
 
-    if (error) {
-      console.error("Resend error:", error);
+    if (notificationError) {
+      console.error("Resend notification error:", notificationError);
       return NextResponse.json(
         { error: "Failed to send email" },
         { status: 500 }
       );
+    }
+
+    // Send confirmation email to the sender
+    const { error: confirmationError } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL!,
+      to: email,
+      subject: `Thanks for reaching out!`,
+      react: ContactConfirmationEmail({ name, subject }),
+    });
+
+    if (confirmationError) {
+      // Log but don't fail - the main email was sent successfully
+      console.error("Resend confirmation error:", confirmationError);
     }
 
     return NextResponse.json({ success: true });
