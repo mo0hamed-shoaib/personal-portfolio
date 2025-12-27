@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { MotionConfig } from "motion/react";
@@ -74,6 +75,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id="a34c9d7b-045a-4a81-94ba-7903026c23cd"
+        strategy="afterInteractive"
+      />
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         style={GeistMono.style}
