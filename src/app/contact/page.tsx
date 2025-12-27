@@ -125,7 +125,7 @@ export default function ContactPage() {
                 href="https://wa.me/201140493328"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-3 border border-green-600/30 bg-green-500/10 p-4 text-green-600 transition-colors hover:bg-green-500/20"
+                className="group flex items-center justify-center gap-3 border border-green-800/30 bg-green-700/10 p-4 text-green-800 transition-colors hover:bg-green-700/20"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ export default function ContactPage() {
               {status === "success" ? (
                 /* Success State */
                 <div className="py-8 text-center">
-                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center border border-green-600/30 bg-green-500/10 text-green-600">
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center border border-green-800/30 bg-green-700/10 text-green-800">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
