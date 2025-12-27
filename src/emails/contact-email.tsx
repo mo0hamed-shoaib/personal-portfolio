@@ -7,7 +7,6 @@ import {
   Hr,
   Html,
   Img,
-  Link,
   Preview,
   Section,
   Text,
@@ -57,7 +56,7 @@ export default function ContactEmail({
       </Preview>
       <Body style={main}>
         <Container style={container}>
-          {/* Header with Logo */}
+          {/* Logo */}
           <Section style={header}>
             <Img
               src="https://www.mohamedgshoaib.me/logo.png"
@@ -73,25 +72,23 @@ export default function ContactEmail({
             <Heading style={heading}>New Contact Message</Heading>
             <Hr style={hr} />
 
-            {/* Sender Info Box */}
-            <Section style={detailsBox}>
-              <Text style={detailLabel}>From</Text>
-              <Text style={detailValue}>{name}</Text>
+            {/* Sender Info */}
+            <Text style={detailLabel}>From</Text>
+            <Text style={detailValue}>{name}</Text>
 
-              <Text style={detailLabel}>Email</Text>
-              <Text style={detailValueLink}>{email}</Text>
+            <Text style={detailLabel}>Email</Text>
+            <Text style={detailValueLink}>{email}</Text>
 
-              <Text style={detailLabel}>Subject</Text>
-              <Text style={detailValue}>{subject}</Text>
+            <Text style={detailLabel}>Subject</Text>
+            <Text style={detailValue}>{subject}</Text>
 
-              <Text style={detailLabel}>Received</Text>
-              <Text style={detailValueLast}>{timestamp}</Text>
-            </Section>
+            <Text style={detailLabel}>Received</Text>
+            <Text style={detailValue}>{timestamp}</Text>
 
             <Hr style={hr} />
 
             {/* Message */}
-            <Text style={label}>Message</Text>
+            <Text style={detailLabel}>Message</Text>
             <Text style={messageText}>{message}</Text>
 
             {/* Reply Button */}
@@ -138,20 +135,18 @@ const header = {
 
 const logo = {
   margin: "0 auto",
-  borderRadius: "8px",
 };
 
 const card = {
   backgroundColor: theme.card,
   border: `1px solid ${theme.border}`,
-  borderRadius: "8px",
   padding: "32px 24px",
 };
 
 const heading = {
   color: theme.foreground,
   fontSize: "24px",
-  fontWeight: "600",
+  fontWeight: "700",
   margin: "0 0 16px 0",
   textAlign: "center" as const,
 };
@@ -161,17 +156,10 @@ const hr = {
   margin: "24px 0",
 };
 
-const detailsBox = {
-  backgroundColor: theme.background,
-  borderRadius: "8px",
-  padding: "20px",
-  margin: "0",
-};
-
 const detailLabel = {
   color: theme.muted,
   fontSize: "12px",
-  fontWeight: "600",
+  fontWeight: "700",
   textTransform: "uppercase" as const,
   letterSpacing: "0.5px",
   margin: "0 0 4px 0",
@@ -180,28 +168,15 @@ const detailLabel = {
 const detailValue = {
   color: theme.foreground,
   fontSize: "16px",
+  fontWeight: "600",
   margin: "0 0 16px 0",
 };
 
 const detailValueLink = {
   color: theme.primary,
   fontSize: "16px",
-  margin: "0 0 16px 0",
-};
-
-const detailValueLast = {
-  color: theme.foreground,
-  fontSize: "16px",
-  margin: "0",
-};
-
-const label = {
-  color: theme.muted,
-  fontSize: "12px",
   fontWeight: "600",
-  textTransform: "uppercase" as const,
-  letterSpacing: "0.5px",
-  margin: "0 0 8px 0",
+  margin: "0 0 16px 0",
 };
 
 const messageText = {
@@ -219,7 +194,6 @@ const buttonContainer = {
 
 const button = {
   backgroundColor: theme.primary,
-  borderRadius: "6px",
   color: "#ffffff",
   fontSize: "16px",
   fontWeight: "600",

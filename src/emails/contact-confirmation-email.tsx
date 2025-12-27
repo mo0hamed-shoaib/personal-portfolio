@@ -39,7 +39,7 @@ export default function ContactConfirmationEmail({
       <Preview>Thanks for reaching out, {name}!</Preview>
       <Body style={main}>
         <Container style={container}>
-          {/* Header with Logo */}
+          {/* Logo */}
           <Section style={header}>
             <Img
               src="https://www.mohamedgshoaib.me/logo.png"
@@ -63,30 +63,25 @@ export default function ContactConfirmationEmail({
               as possible.
             </Text>
 
-            {/* Response Time Box */}
-            <Section style={detailsBox}>
-              <Text style={detailLabel}>Expected Response Time</Text>
-              <Text style={detailValue}>Within 24-48 hours</Text>
-            </Section>
+            {/* Response Time */}
+            <Text style={detailLabel}>Expected Response Time</Text>
+            <Text style={detailValue}>Within 24-48 hours</Text>
 
-            <Text style={paragraph}>
-              If your matter is urgent, feel free to reach out via WhatsApp for
-              a quicker response.
+            <Text style={paragraphSpaced}>
+              If your matter is urgent, feel free to{" "}
+              <Link href="https://wa.me/201140493328" style={whatsappLink}>
+                chat on WhatsApp
+              </Link>{" "}
+              for a quicker response.
             </Text>
 
-            {/* Buttons */}
+            {/* Visit Portfolio Button */}
             <Section style={buttonContainer}>
               <Button
                 style={buttonPrimary}
                 href="https://www.mohamedgshoaib.me"
               >
                 Visit Portfolio
-              </Button>
-            </Section>
-
-            <Section style={buttonContainerSecondary}>
-              <Button style={buttonWhatsApp} href="https://wa.me/201140493328">
-                Chat on WhatsApp
               </Button>
             </Section>
 
@@ -155,20 +150,18 @@ const header = {
 
 const logo = {
   margin: "0 auto",
-  borderRadius: "8px",
 };
 
 const card = {
   backgroundColor: theme.card,
   border: `1px solid ${theme.border}`,
-  borderRadius: "8px",
   padding: "32px 24px",
 };
 
 const heading = {
   color: theme.foreground,
   fontSize: "24px",
-  fontWeight: "600",
+  fontWeight: "700",
   margin: "0 0 16px 0",
   textAlign: "center" as const,
 };
@@ -185,43 +178,42 @@ const paragraph = {
   margin: "0 0 16px 0",
 };
 
-const detailsBox = {
-  backgroundColor: theme.background,
-  borderRadius: "8px",
-  padding: "16px 20px",
-  margin: "24px 0",
-  textAlign: "center" as const,
+const paragraphSpaced = {
+  color: theme.foreground,
+  fontSize: "16px",
+  lineHeight: "1.6",
+  margin: "24px 0 0 0",
 };
 
 const detailLabel = {
   color: theme.muted,
   fontSize: "12px",
-  fontWeight: "600",
+  fontWeight: "700",
   textTransform: "uppercase" as const,
   letterSpacing: "0.5px",
-  margin: "0 0 4px 0",
+  margin: "24px 0 4px 0",
 };
 
 const detailValue = {
   color: theme.primary,
   fontSize: "18px",
-  fontWeight: "600",
+  fontWeight: "700",
   margin: "0",
+};
+
+const whatsappLink = {
+  color: theme.green,
+  fontWeight: "600",
+  textDecoration: "underline",
 };
 
 const buttonContainer = {
   textAlign: "center" as const,
-  margin: "24px 0 12px 0",
-};
-
-const buttonContainerSecondary = {
-  textAlign: "center" as const,
-  margin: "0 0 24px 0",
+  margin: "32px 0 24px 0",
 };
 
 const buttonPrimary = {
   backgroundColor: theme.primary,
-  borderRadius: "6px",
   color: "#ffffff",
   fontSize: "16px",
   fontWeight: "600",
@@ -231,24 +223,11 @@ const buttonPrimary = {
   padding: "12px 24px",
 };
 
-const buttonWhatsApp = {
-  backgroundColor: "transparent",
-  border: `2px solid ${theme.green}`,
-  borderRadius: "6px",
-  color: theme.green,
-  fontSize: "14px",
-  fontWeight: "600",
-  textDecoration: "none",
-  textAlign: "center" as const,
-  display: "inline-block",
-  padding: "10px 20px",
-};
-
 const signature = {
   color: theme.foreground,
   fontSize: "16px",
   lineHeight: "1.6",
-  margin: "24px 0 0 0",
+  margin: "0",
 };
 
 const footer = {
