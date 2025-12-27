@@ -7,8 +7,14 @@ import { ExperienceAccordionItem } from "./experience-accordion-item";
 import { ExperienceFallback } from "./experience-fallback";
 
 export function Experience() {
-  const { experience } = portfolioData;
+  const { experience: allExperience } = portfolioData;
   const [mounted, setMounted] = useState(false);
+
+  // Filter experience items by type
+  const workExperience = allExperience.filter((item) => item.type === "work");
+  const internships = allExperience.filter(
+    (item) => item.type === "internship"
+  );
 
   useEffect(() => {
     startTransition(() => {
@@ -28,19 +34,41 @@ export function Experience() {
           </h2>
         </div>
 
-        {experience.length > 0 && (
-          <div>
-            {mounted ? (
-              <Accordion multiple className="space-y-4">
-                {experience.map((exp) => (
-                  <ExperienceAccordionItem key={exp.id} item={exp} />
-                ))}
-              </Accordion>
-            ) : (
-              <ExperienceFallback items={experience} />
-            )}
-          </div>
-        )}
+        <div className="space-y-8">
+          {workExperience.length > 0 && (
+            <div>
+              <h3 className="mb-4 text-center text-xl font-semibold">
+                Work Experience
+              </h3>
+              {mounted ? (
+                <Accordion multiple className="space-y-4">
+                  {workExperience.map((exp) => (
+                    <ExperienceAccordionItem key={exp.id} item={exp} />
+                  ))}
+                </Accordion>
+              ) : (
+                <ExperienceFallback items={workExperience} />
+              )}
+            </div>
+          )}
+
+          {internships.length > 0 && (
+            <div>
+              <h3 className="mb-4 text-center text-xl font-semibold">
+                Internships
+              </h3>
+              {mounted ? (
+                <Accordion multiple className="space-y-4">
+                  {internships.map((intern) => (
+                    <ExperienceAccordionItem key={intern.id} item={intern} />
+                  ))}
+                </Accordion>
+              ) : (
+                <ExperienceFallback items={internships} />
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

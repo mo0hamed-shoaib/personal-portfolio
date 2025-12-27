@@ -21,17 +21,17 @@ interface GitHubActivityProps {
 function getLevelColor(level: number): string {
   switch (level) {
     case 0:
-      return "bg-muted";
+      return "bg-muted/60";
     case 1:
-      return "bg-accent-orange/40";
+      return "bg-accent-orange/25";
     case 2:
-      return "bg-accent-orange/60";
+      return "bg-accent-orange/40";
     case 3:
-      return "bg-accent-orange/80";
+      return "bg-accent-orange/60";
     case 4:
       return "bg-accent-orange";
     default:
-      return "bg-muted";
+      return "bg-muted/60";
   }
 }
 
@@ -88,7 +88,7 @@ function ContributionGraph({
                     />
                   }
                 />
-                <TooltipPanel className="border border-border bg-popover px-2.5 py-1 text-xs text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+                <TooltipPanel className="border border-border bg-popover px-2.5 py-1 text-xs text-popover-foreground shadow-md **:data-[slot='tooltip-arrow']:bg-popover **:data-[slot='tooltip-arrow']:fill-popover">
                   {contributionLabel}
                 </TooltipPanel>
               </Tooltip>
