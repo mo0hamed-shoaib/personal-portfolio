@@ -1,7 +1,6 @@
 "use client";
 
 import { portfolioData } from "@/lib/portfolio-data";
-import * as SimpleIcons from "simple-icons";
 
 export function TechStack() {
   const { techStack } = portfolioData;
@@ -20,21 +19,6 @@ export function TechStack() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {techStack.map((tech, index) => {
-            const iconKey = `si${tech.iconSlug
-              .split(/[.-]/)
-              .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-              .join("")}` as keyof typeof SimpleIcons;
-            const icon = (
-              SimpleIcons as unknown as Record<
-                string,
-                { svg: string; hex: string }
-              >
-            )[iconKey];
-            const iconMarkup = icon?.svg.replace(
-              /<svg /,
-              `<svg fill="currentColor" `
-            );
-
             const isLeftColumn = index % 2 === 0;
             const borderClasses = isLeftColumn
               ? "border-y border-r border-border"
@@ -45,12 +29,16 @@ export function TechStack() {
                 key={tech.name}
                 className={`relative flex items-start gap-4 ${borderClasses} bg-card p-6`}
               >
-                {iconMarkup && (
-                  <div
-                    className="h-12 w-12 flex items-center justify-center shrink-0 text-foreground"
-                    dangerouslySetInnerHTML={{ __html: iconMarkup }}
-                  />
-                )}
+                <div className="h-12 w-12 flex items-center justify-center shrink-0 text-foreground">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="h-10 w-10"
+                    aria-hidden="true"
+                  >
+                    <path d={tech.svg} />
+                  </svg>
+                </div>
                 <div>
                   <h3 className="text-lg font-semibold">{tech.name}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
