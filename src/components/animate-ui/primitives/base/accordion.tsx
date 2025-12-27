@@ -91,7 +91,7 @@ type AccordionPanelProps = Omit<
   };
 
 function AccordionPanel({
-  transition = { duration: 0.35, ease: "easeInOut" },
+  transition = { duration: 0.3, ease: "easeOut" },
   hiddenUntilFound,
   keepRendered = false,
   ...props
@@ -109,20 +109,14 @@ function AccordionPanel({
             <motion.div
               key="accordion-panel"
               data-slot="accordion-panel"
-              initial={{ height: 0, opacity: 0, "--mask-stop": "0%", y: 20 }}
+              initial={{ height: 0, opacity: 0 }}
               animate={
                 isOpen
-                  ? { height: "auto", opacity: 1, "--mask-stop": "100%", y: 0 }
-                  : { height: 0, opacity: 0, "--mask-stop": "0%", y: 20 }
+                  ? { height: "auto", opacity: 1 }
+                  : { height: 0, opacity: 0 }
               }
               transition={transition}
-              style={{
-                maskImage:
-                  "linear-gradient(black var(--mask-stop), transparent var(--mask-stop))",
-                WebkitMaskImage:
-                  "linear-gradient(black var(--mask-stop), transparent var(--mask-stop))",
-                overflow: "hidden",
-              }}
+              style={{ overflow: "hidden" }}
               {...props}
             />
           }
@@ -137,22 +131,11 @@ function AccordionPanel({
               <motion.div
                 key="accordion-panel"
                 data-slot="accordion-panel"
-                initial={{ height: 0, opacity: 0, "--mask-stop": "0%", y: 20 }}
-                animate={{
-                  height: "auto",
-                  opacity: 1,
-                  "--mask-stop": "100%",
-                  y: 0,
-                }}
-                exit={{ height: 0, opacity: 0, "--mask-stop": "0%", y: 20 }}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
                 transition={transition}
-                style={{
-                  maskImage:
-                    "linear-gradient(black var(--mask-stop), transparent var(--mask-stop))",
-                  WebkitMaskImage:
-                    "linear-gradient(black var(--mask-stop), transparent var(--mask-stop))",
-                  overflow: "hidden",
-                }}
+                style={{ overflow: "hidden" }}
                 {...props}
               />
             }

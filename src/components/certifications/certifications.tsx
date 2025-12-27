@@ -56,7 +56,7 @@ export function Certifications() {
                     </div>
                     <PlusIcon className="h-3 w-3 shrink-0 transition-transform duration-200" />
                   </AccordionTrigger>
-                  <AccordionPanel className="px-4 pb-4 space-y-4 text-sm text-muted-foreground">
+                  <AccordionPanel className="px-4 pt-4 pb-4 space-y-4 text-sm text-muted-foreground">
                     {cert.description ? (
                       <p className="text-foreground">{cert.description}</p>
                     ) : null}

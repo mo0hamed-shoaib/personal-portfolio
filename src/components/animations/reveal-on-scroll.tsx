@@ -23,8 +23,12 @@ export function RevealOnScroll({
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      initial={{ opacity: 0, transform: "translateY(30px)" }}
+      animate={
+        isInView
+          ? { opacity: 1, transform: "translateY(0px)" }
+          : { opacity: 0, transform: "translateY(30px)" }
+      }
       transition={{
         duration: 0.7,
         delay,
