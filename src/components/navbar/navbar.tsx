@@ -25,7 +25,7 @@ export function Navbar() {
           <span className="pointer-events-none absolute z-20 right-0 top-0 translate-x-[calc(50%+0.5px)] -translate-y-[calc(50%+1px)] text-[10px] font-mono font-semibold leading-none text-accent-orange">
             +
           </span>
-          <div className="flex h-12 items-center justify-between gap-4 px-4">
+          <div className="flex h-12 items-center justify-between px-4">
             <Link href="/" className="flex items-center gap-2 shrink-0">
               {mounted && (
                 <Mg8BitLogo
@@ -35,12 +35,21 @@ export function Navbar() {
               )}
             </Link>
 
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Blog
-            </Link>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/blog"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Blog
+              </Link>
+
+              <Link
+                href="/contact"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       </div>
