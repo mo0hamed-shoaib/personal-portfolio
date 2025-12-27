@@ -80,10 +80,11 @@ function ContributionGraph({
               <Tooltip key={day.date} delay={0}>
                 <TooltipTrigger
                   render={
-                    <div
+                    <button
+                      type="button"
                       className={`h-3 w-3 ${getLevelColor(
                         day.level
-                      )} transition-colors`}
+                      )} transition-colors cursor-default`}
                       aria-label={contributionLabel}
                     />
                   }
