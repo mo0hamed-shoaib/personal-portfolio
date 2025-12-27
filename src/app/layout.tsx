@@ -75,12 +75,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Script
-        defer
-        src="https://cloud.umami.is/script.js"
-        data-website-id="a34c9d7b-045a-4a81-94ba-7903026c23cd"
-        strategy="afterInteractive"
-      />
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         style={GeistMono.style}
@@ -92,6 +86,12 @@ export default function RootLayout({
           {children}
           <Toaster />
         </MotionConfig>
+        {/* Umami Analytics */}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="a34c9d7b-045a-4a81-94ba-7903026c23cd"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
