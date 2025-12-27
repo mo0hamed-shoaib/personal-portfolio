@@ -1,5 +1,6 @@
 import * as React from "react";
-import { XIcon } from "lucide-react";
+import { Icon } from "@/components/ui/icon";
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
 
 import {
   Dialog as DialogPrimitive,
@@ -80,7 +81,7 @@ function DialogPopup({
         {children}
         {showCloseButton && (
           <DialogClosePrimitive className="ring-offset-background focus:ring-ring data-[open]:bg-accent data-[open]:text-muted-foreground absolute top-6 right-6 flex h-6 w-6 items-center justify-center opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-5 cursor-pointer">
-            <XIcon />
+            <Icon icon={Cancel01Icon} size={20} />
             <span className="sr-only">Close</span>
           </DialogClosePrimitive>
         )}

@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Separator } from "@base-ui/react/separator";
 import { Badge } from "@/components/ui/badge";
+import { Icon } from "@/components/ui/icon";
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 
 interface Project {
   id: string;
@@ -80,9 +82,10 @@ export function ProjectCarouselCard({
           </p>
           <button
             onClick={() => onReadMore(project)}
-            className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring mb-4 w-fit"
+            className="cursor-pointer text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring mb-4 w-fit inline-flex items-center gap-1"
           >
-            Read More →
+            Read More
+            <Icon icon={ArrowRight02Icon} size={14} />
           </button>
 
           <Separator orientation="horizontal" className="mb-4 h-px bg-border" />

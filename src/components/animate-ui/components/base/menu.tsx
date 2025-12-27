@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
   Menu as MenuPrimitive,
@@ -37,9 +37,14 @@ import {
   type MenuShortcutProps as MenuShortcutPrimitiveProps,
   type MenuSubmenuProps as MenuSubmenuPrimitiveProps,
   type MenuSubmenuTriggerProps as MenuSubmenuTriggerPrimitiveProps,
-} from '@/components/animate-ui/primitives/base/menu';
-import { cn } from '@/lib/utils';
-import { CheckIcon, ChevronRightIcon, CircleIcon } from 'lucide-react';
+} from "@/components/animate-ui/primitives/base/menu";
+import { cn } from "@/lib/utils";
+import { Icon } from "@/components/ui/icon";
+import {
+  Tick01Icon,
+  ArrowRight01Icon,
+  RecordIcon,
+} from "@hugeicons/core-free-icons";
 
 type MenuProps = MenuPrimitiveProps;
 
@@ -82,8 +87,8 @@ function MenuPanel({
           transition={transition}
           id={id}
           className={cn(
-            'bg-popover text-popover-foreground max-h-(--available-height) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md outline-none',
-            className,
+            "bg-popover text-popover-foreground max-h-(--available-height) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md outline-none",
+            className
           )}
         >
           <MenuHighlightPrimitive className="absolute inset-0 bg-accent z-0 rounded-sm">
@@ -110,8 +115,8 @@ function MenuGroupLabel({ className, inset, ...props }: MenuGroupLabelProps) {
     <MenuGroupLabelPrimitive
       data-inset={inset}
       className={cn(
-        'px-2 py-1.5 text-sm font-medium data-[inset]:pl-8',
-        className,
+        "px-2 py-1.5 text-sm font-medium data-[inset]:pl-8",
+        className
       )}
       {...props}
     />
@@ -120,22 +125,22 @@ function MenuGroupLabel({ className, inset, ...props }: MenuGroupLabelProps) {
 
 type MenuItemProps = MenuItemPrimitiveProps & {
   inset?: boolean;
-  variant?: 'default' | 'destructive';
+  variant?: "default" | "destructive";
 };
 
 function MenuItem({
   className,
   inset,
-  variant = 'default',
+  variant = "default",
   disabled,
   ...props
 }: MenuItemProps) {
   return (
     <MenuHighlightItemPrimitive
       activeClassName={
-        variant === 'destructive'
-          ? 'bg-destructive/10 dark:bg-destructive/20'
-          : ''
+        variant === "destructive"
+          ? "bg-destructive/10 dark:bg-destructive/20"
+          : ""
       }
       disabled={disabled}
     >
@@ -145,7 +150,7 @@ function MenuItem({
         data-variant={variant}
         className={cn(
           "focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-          className,
+          className
         )}
         {...props}
       />
@@ -168,7 +173,7 @@ function MenuCheckboxItem({
         disabled={disabled}
         className={cn(
           "focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-          className,
+          className
         )}
         checked={checked}
         {...props}
@@ -178,7 +183,7 @@ function MenuCheckboxItem({
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
           >
-            <CheckIcon className="size-4" />
+            <Icon icon={Tick01Icon} size={16} />
           </MenuCheckboxItemIndicatorPrimitive>
         </span>
         {children}
@@ -207,13 +212,13 @@ function MenuRadioItem({
         disabled={disabled}
         className={cn(
           "focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-          className,
+          className
         )}
         {...props}
       >
         <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
           <MenuRadioItemIndicatorPrimitive layoutId="dropdown-menu-item-indicator-radio">
-            <CircleIcon className="size-2 fill-current" />
+            <Icon icon={RecordIcon} size={8} />
           </MenuRadioItemIndicatorPrimitive>
         </span>
         {children}
@@ -227,7 +232,7 @@ type MenuSeparatorProps = MenuSeparatorPrimitiveProps;
 function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   return (
     <MenuSeparatorPrimitive
-      className={cn('bg-border -mx-1 my-1 h-px', className)}
+      className={cn("bg-border -mx-1 my-1 h-px", className)}
       {...props}
     />
   );
@@ -239,8 +244,8 @@ function MenuShortcut({ className, ...props }: MenuShortcutProps) {
   return (
     <MenuShortcutPrimitive
       className={cn(
-        'text-muted-foreground ml-auto text-xs tracking-widest',
-        className,
+        "text-muted-foreground ml-auto text-xs tracking-widest",
+        className
       )}
       {...props}
     />
@@ -277,14 +282,19 @@ function MenuSubmenuTrigger({
         disabled={disabled}
         data-inset={inset}
         className={cn(
-          'focus:text-accent-foreground data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8',
-          'aria-[expanded=true]:[&_[data-slot=chevron]]:rotate-90 [&_[data-slot=chevron]]:transition-transform [&_[data-slot=chevron]]:duration-300 [&_[data-slot=chevron]]:ease-in-out',
-          className,
+          "focus:text-accent-foreground data-[state=open]:text-accent-foreground flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[inset]:pl-8",
+          "aria-[expanded=true]:[&_[data-slot=chevron]]:rotate-90 [&_[data-slot=chevron]]:transition-transform [&_[data-slot=chevron]]:duration-300 [&_[data-slot=chevron]]:ease-in-out",
+          className
         )}
         {...props}
       >
         {children}
-        <ChevronRightIcon data-slot="chevron" className="ml-auto size-4" />
+        <Icon
+          icon={ArrowRight01Icon}
+          size={16}
+          data-slot="chevron"
+          className="ml-auto"
+        />
       </MenuSubmenuTriggerPrimitive>
     </MenuHighlightItemPrimitive>
   );
@@ -314,8 +324,8 @@ function MenuSubmenuPanel({
           transition={transition}
           id={id}
           className={cn(
-            'bg-popover text-popover-foreground max-h-(--available-height) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md',
-            className,
+            "bg-popover text-popover-foreground max-h-(--available-height) min-w-[8rem] origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md",
+            className
           )}
         >
           {children}
