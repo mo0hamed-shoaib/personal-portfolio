@@ -75,10 +75,12 @@ export function ProjectCarousel({ projects }: ProjectCarouselProps) {
       <ProjectCarouselContainer>
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-6">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <ProjectCarouselCard
                 key={project.id}
                 project={project}
+                index={index}
+                selectedIndex={selectedIndex}
                 onReadMore={handleReadMore}
               />
             ))}

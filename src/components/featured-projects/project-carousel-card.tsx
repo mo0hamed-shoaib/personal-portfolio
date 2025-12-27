@@ -23,36 +23,48 @@ interface Project {
 
 interface ProjectCarouselCardProps {
   project: Project;
+  index: number;
+  selectedIndex: number;
   onReadMore: (project: Project) => void;
 }
 
 export function ProjectCarouselCard({
   project,
+  index,
+  selectedIndex,
   onReadMore,
 }: ProjectCarouselCardProps) {
   const [imageLoading, setImageLoading] = useState(true);
+  const isFirstImage = index === 0;
+
+  // Only render image for current slide (or first image for initial load)
+  const shouldRenderImage = index === selectedIndex || isFirstImage;
 
   return (
     <div className="relative flex min-w-0 flex-[0_0_100%] flex-col">
       <div className="relative flex h-full flex-col border-y border-border bg-card">
         <div className="relative aspect-video w-full overflow-hidden bg-muted">
-          {imageLoading && (
+          {(imageLoading || !shouldRenderImage) && (
             <div className="absolute inset-0 flex items-center justify-center bg-muted">
               <div className="h-8 w-8 animate-pulse rounded border border-border bg-card" />
             </div>
           )}
-          <Image
-            src={project.image}
-            alt={project.name}
-            fill
-            quality={95}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={`object-cover transition-opacity duration-300 ${
-              imageLoading ? "opacity-0" : "opacity-100"
-            }`}
-            onLoad={() => setImageLoading(false)}
-            onError={() => setImageLoading(false)}
-          />
+          {shouldRenderImage && (
+            <Image
+              src={project.image}
+              alt={project.name}
+              fill
+              quality={95}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={isFirstImage}
+              loading={isFirstImage ? undefined : "lazy"}
+              className={`object-cover transition-opacity duration-300 ${
+                imageLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={() => setImageLoading(false)}
+              onError={() => setImageLoading(false)}
+            />
+          )}
         </div>
 
         <div className="flex flex-1 flex-col p-6">
@@ -83,6 +95,7 @@ export function ProjectCarouselCard({
               className="cursor-pointer text-sm font-bold text-accent-orange transition-colors hover:text-accent-orange/80 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Visit Website
+              <span className="sr-only"> - {project.name}</span>
             </Link>
             {project.repositoryUrl && (
               <Link
