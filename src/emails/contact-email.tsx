@@ -34,8 +34,7 @@ export default function ContactEmail({
   subject,
   message,
 }: ContactEmailProps) {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://mohamedshoaib.dev";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
   return (
     <Html>
