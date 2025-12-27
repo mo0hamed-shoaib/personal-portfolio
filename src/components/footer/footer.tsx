@@ -72,7 +72,7 @@ export function Footer() {
                     </Link>
                   }
                 />
-                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md **:data-[slot='tooltip-arrow']:bg-popover **:data-[slot='tooltip-arrow']:fill-popover">
                   LinkedIn
                 </TooltipPanel>
               </Tooltip>
@@ -99,7 +99,7 @@ export function Footer() {
                     </Link>
                   }
                 />
-                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md **:data-[slot='tooltip-arrow']:bg-popover **:data-[slot='tooltip-arrow']:fill-popover">
                   GitHub
                 </TooltipPanel>
               </Tooltip>
@@ -126,7 +126,7 @@ export function Footer() {
                     </Link>
                   }
                 />
-                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md [&_[data-slot='tooltip-arrow']]:bg-popover [&_[data-slot='tooltip-arrow']]:fill-popover">
+                <TooltipPanel className="border border-border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md **:data-[slot='tooltip-arrow']:bg-popover **:data-[slot='tooltip-arrow']:fill-popover">
                   X (Twitter)
                 </TooltipPanel>
               </Tooltip>
