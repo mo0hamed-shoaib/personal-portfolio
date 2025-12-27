@@ -1,16 +1,25 @@
 "use client";
 
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function ScrollRestoration() {
-  useLayoutEffect(() => {
-    // Disable browser scroll restoration and ensure page starts at top
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Disable browser scroll restoration
     if (typeof window !== "undefined") {
       window.history.scrollRestoration = "manual";
-      window.scrollTo(0, 0);
     }
   }, []);
 
+  // Scroll to top whenever the pathname changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Scroll immediately without animation to prevent seeing the old scroll position
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [pathname]);
+
   return null;
 }
-

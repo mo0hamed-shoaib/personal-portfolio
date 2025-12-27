@@ -10,4 +10,3 @@ interface SectionWrapperProps {
 export function SectionWrapper({ children, delay }: SectionWrapperProps) {
   return <RevealOnScroll delay={delay}>{children}</RevealOnScroll>;
 }
-
