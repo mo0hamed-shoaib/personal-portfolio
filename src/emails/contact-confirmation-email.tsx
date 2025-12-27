@@ -1,11 +1,13 @@
 import {
   Body,
+  Button,
   Container,
   Head,
   Heading,
   Hr,
   Html,
   Img,
+  Link,
   Preview,
   Section,
   Text,
@@ -24,14 +26,13 @@ const theme = {
   muted: "#767266", // muted text
   border: "#e5e3df", // border color
   card: "#ffffff", // card background
+  green: "#16a34a", // WhatsApp green
 };
 
 export default function ContactConfirmationEmail({
   name,
   subject,
 }: ContactConfirmationEmailProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
   return (
     <Html>
       <Head />
@@ -41,7 +42,7 @@ export default function ContactConfirmationEmail({
           {/* Header with Logo */}
           <Section style={header}>
             <Img
-              src={`${baseUrl}/logo.png`}
+              src="https://www.mohamedgshoaib.me/logo.png"
               width="48"
               height="48"
               alt="Mohamed Shoaib"
@@ -62,10 +63,32 @@ export default function ContactConfirmationEmail({
               as possible.
             </Text>
 
+            {/* Response Time Box */}
+            <Section style={detailsBox}>
+              <Text style={detailLabel}>Expected Response Time</Text>
+              <Text style={detailValue}>Within 24-48 hours</Text>
+            </Section>
+
             <Text style={paragraph}>
-              I typically respond within 24-48 hours. If your matter is urgent,
-              feel free to reach out via WhatsApp.
+              If your matter is urgent, feel free to reach out via WhatsApp for
+              a quicker response.
             </Text>
+
+            {/* Buttons */}
+            <Section style={buttonContainer}>
+              <Button
+                style={buttonPrimary}
+                href="https://www.mohamedgshoaib.me"
+              >
+                Visit Portfolio
+              </Button>
+            </Section>
+
+            <Section style={buttonContainerSecondary}>
+              <Button style={buttonWhatsApp} href="https://wa.me/201140493328">
+                Chat on WhatsApp
+              </Button>
+            </Section>
 
             <Text style={signature}>
               Best regards,
@@ -79,6 +102,31 @@ export default function ContactConfirmationEmail({
             <Text style={footerText}>
               This is an automated confirmation for your contact form
               submission.
+            </Text>
+
+            {/* Social Links */}
+            <Section style={socialLinks}>
+              <Link
+                href="https://github.com/mohamed-g-shoaib"
+                style={socialLink}
+              >
+                GitHub
+              </Link>
+              <Text style={socialDivider}>•</Text>
+              <Link
+                href="https://linkedin.com/in/mohamed-g-shoaib"
+                style={socialLink}
+              >
+                LinkedIn
+              </Link>
+              <Text style={socialDivider}>•</Text>
+              <Link href="https://www.mohamedgshoaib.me" style={socialLink}>
+                Website
+              </Link>
+            </Section>
+
+            <Text style={copyright}>
+              © {new Date().getFullYear()} Mohamed Shoaib. All rights reserved.
             </Text>
           </Section>
         </Container>
@@ -137,6 +185,65 @@ const paragraph = {
   margin: "0 0 16px 0",
 };
 
+const detailsBox = {
+  backgroundColor: theme.background,
+  borderRadius: "8px",
+  padding: "16px 20px",
+  margin: "24px 0",
+  textAlign: "center" as const,
+};
+
+const detailLabel = {
+  color: theme.muted,
+  fontSize: "12px",
+  fontWeight: "600",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.5px",
+  margin: "0 0 4px 0",
+};
+
+const detailValue = {
+  color: theme.primary,
+  fontSize: "18px",
+  fontWeight: "600",
+  margin: "0",
+};
+
+const buttonContainer = {
+  textAlign: "center" as const,
+  margin: "24px 0 12px 0",
+};
+
+const buttonContainerSecondary = {
+  textAlign: "center" as const,
+  margin: "0 0 24px 0",
+};
+
+const buttonPrimary = {
+  backgroundColor: theme.primary,
+  borderRadius: "6px",
+  color: "#ffffff",
+  fontSize: "16px",
+  fontWeight: "600",
+  textDecoration: "none",
+  textAlign: "center" as const,
+  display: "inline-block",
+  padding: "12px 24px",
+};
+
+const buttonWhatsApp = {
+  backgroundColor: "transparent",
+  border: `2px solid ${theme.green}`,
+  borderRadius: "6px",
+  color: theme.green,
+  fontSize: "14px",
+  fontWeight: "600",
+  textDecoration: "none",
+  textAlign: "center" as const,
+  display: "inline-block",
+  padding: "10px 20px",
+};
+
 const signature = {
   color: theme.foreground,
   fontSize: "16px",
@@ -150,6 +257,29 @@ const footer = {
 };
 
 const footerText = {
+  color: theme.muted,
+  fontSize: "12px",
+  margin: "0 0 16px 0",
+};
+
+const socialLinks = {
+  margin: "0 0 16px 0",
+};
+
+const socialLink = {
+  color: theme.primary,
+  fontSize: "12px",
+  textDecoration: "none",
+};
+
+const socialDivider = {
+  color: theme.muted,
+  fontSize: "12px",
+  margin: "0 8px",
+  display: "inline",
+};
+
+const copyright = {
   color: theme.muted,
   fontSize: "12px",
   margin: "0",

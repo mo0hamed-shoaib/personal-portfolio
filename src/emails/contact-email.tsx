@@ -1,11 +1,13 @@
 import {
   Body,
+  Button,
   Container,
   Head,
   Heading,
   Hr,
   Html,
   Img,
+  Link,
   Preview,
   Section,
   Text,
@@ -34,7 +36,18 @@ export default function ContactEmail({
   subject,
   message,
 }: ContactEmailProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const replyMailto = `mailto:${email}?subject=Re: ${encodeURIComponent(
+    subject
+  )}`;
+  const timestamp = new Date().toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
 
   return (
     <Html>
@@ -47,7 +60,7 @@ export default function ContactEmail({
           {/* Header with Logo */}
           <Section style={header}>
             <Img
-              src={`${baseUrl}/logo.png`}
+              src="https://www.mohamedgshoaib.me/logo.png"
               width="48"
               height="48"
               alt="Mohamed Shoaib"
@@ -60,24 +73,32 @@ export default function ContactEmail({
             <Heading style={heading}>New Contact Message</Heading>
             <Hr style={hr} />
 
-            {/* Sender Info */}
-            <Section style={infoSection}>
-              <Text style={label}>From</Text>
-              <Text style={value}>{name}</Text>
+            {/* Sender Info Box */}
+            <Section style={detailsBox}>
+              <Text style={detailLabel}>From</Text>
+              <Text style={detailValue}>{name}</Text>
 
-              <Text style={label}>Email</Text>
-              <Text style={valueLink}>{email}</Text>
+              <Text style={detailLabel}>Email</Text>
+              <Text style={detailValueLink}>{email}</Text>
 
-              <Text style={label}>Subject</Text>
-              <Text style={value}>{subject}</Text>
+              <Text style={detailLabel}>Subject</Text>
+              <Text style={detailValue}>{subject}</Text>
+
+              <Text style={detailLabel}>Received</Text>
+              <Text style={detailValueLast}>{timestamp}</Text>
             </Section>
 
             <Hr style={hr} />
 
             {/* Message */}
-            <Section style={messageSection}>
-              <Text style={label}>Message</Text>
-              <Text style={messageText}>{message}</Text>
+            <Text style={label}>Message</Text>
+            <Text style={messageText}>{message}</Text>
+
+            {/* Reply Button */}
+            <Section style={buttonContainer}>
+              <Button style={button} href={replyMailto}>
+                Reply to {name}
+              </Button>
             </Section>
           </Section>
 
@@ -86,6 +107,9 @@ export default function ContactEmail({
             <Text style={footerText}>
               This email was sent from the contact form on your portfolio
               website.
+            </Text>
+            <Text style={copyright}>
+              © {new Date().getFullYear()} Mohamed Shoaib. All rights reserved.
             </Text>
           </Section>
         </Container>
@@ -137,11 +161,14 @@ const hr = {
   margin: "24px 0",
 };
 
-const infoSection = {
-  padding: "0",
+const detailsBox = {
+  backgroundColor: theme.background,
+  borderRadius: "8px",
+  padding: "20px",
+  margin: "0",
 };
 
-const label = {
+const detailLabel = {
   color: theme.muted,
   fontSize: "12px",
   fontWeight: "600",
@@ -150,20 +177,31 @@ const label = {
   margin: "0 0 4px 0",
 };
 
-const value = {
+const detailValue = {
   color: theme.foreground,
   fontSize: "16px",
   margin: "0 0 16px 0",
 };
 
-const valueLink = {
+const detailValueLink = {
   color: theme.primary,
   fontSize: "16px",
   margin: "0 0 16px 0",
 };
 
-const messageSection = {
-  padding: "0",
+const detailValueLast = {
+  color: theme.foreground,
+  fontSize: "16px",
+  margin: "0",
+};
+
+const label = {
+  color: theme.muted,
+  fontSize: "12px",
+  fontWeight: "600",
+  textTransform: "uppercase" as const,
+  letterSpacing: "0.5px",
+  margin: "0 0 8px 0",
 };
 
 const messageText = {
@@ -174,12 +212,35 @@ const messageText = {
   whiteSpace: "pre-wrap" as const,
 };
 
+const buttonContainer = {
+  textAlign: "center" as const,
+  margin: "32px 0 0 0",
+};
+
+const button = {
+  backgroundColor: theme.primary,
+  borderRadius: "6px",
+  color: "#ffffff",
+  fontSize: "16px",
+  fontWeight: "600",
+  textDecoration: "none",
+  textAlign: "center" as const,
+  display: "inline-block",
+  padding: "12px 24px",
+};
+
 const footer = {
   textAlign: "center" as const,
   padding: "24px 0",
 };
 
 const footerText = {
+  color: theme.muted,
+  fontSize: "12px",
+  margin: "0 0 8px 0",
+};
+
+const copyright = {
   color: theme.muted,
   fontSize: "12px",
   margin: "0",
